@@ -1,0 +1,14 @@
+.emptyScreen {
+    display: grid;
+    width: 50%;
+    margin: 0px;
+    margin: 0px 25%;
+    gap: 24px;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    justify-items: center;
+    img {
+        width: 100px;
+        height: 100px;
+    }
+}

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../css/stylesheet.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;900&display=swap" rel="stylesheet">
+    <title>GIFOS-J</title>
+</head>
+<body>
+    <div class="blueline"></div>
+    <header id="sticky">
+        <input id="checkbox" type="checkbox">
+        <label for="checkbox"><span></span></label>
+        <div class="logomobile">
+            <img src="../assets/logo/logo-mobile.svg" alt="logo">
+        </div>
+        <div class="logodesk">
+            <img src="../assets/logo/logo-desktop.svg" alt="logo">
+        </div>
+        <div class="navheader" id="sticknav">
+            <input type="text" placeholder="Busca GIFOS y más">
+            <img src="../assets/searching/icon-search.svg" alt="backgroundImg">
+        </div>
+        <ul>
+            <li><a href="#" id="darkness">MODO NOCTURNO</a></li>
+            <div class="greyline"></div>
+            <li><a href="./favoritos.html">FAVORITOS</a></li>
+            <div class="greyline"></div>
+            <li><a href="./misGifos.html">MIS GIFOS</a></li>
+            <div class="greyline"></div>
+        </ul>
+        <div class="plusbtn">
+            <a href="./creargifo.html"><img id="creategift" src="../assets/plusbtn/button-crear-gifo.svg" alt="crearGift"> </a>
+        </div>
+    </header>
+    <main>
+        <div id="containertitle">
+            <div class="title">
+                <h1>Inspírate, busca, guarda, y crea los mejores <span>GIFOS</span></h1>
+            </div>
+        </div>
+        <nav id="nav">
+            <img src="../assets/ilustra_header.svg" alt="backgroundImg">
+            <div class="navsphere">
+                <input type="text" placeholder="Busca GIFOS y más" id="buscador">
+                <img src="../assets/searching/icon-search.svg" alt="searchIcon" id="buscadoranimation">
+            </div>
+        </nav>
+        <div class="trending">
+            <div>
+                <h4>Trending</h4>
+                <p>Reactions, Entertainment, Sports, Stickers, Artists</p>
+            </div>
+        </div>
+        <h2 id="searchResult"></h2>
+        <div id="gifobuilder">
+            
+        </div>
+        <div class="btn"> 
+            <img id="showmore" src="../assets/viewmorebtn/ver-mas.svg" alt="ver mas">
+        </div>
+        <div class="trendinggifos">
+            <div class="galleryfoot">
+                <h3>Trending GIFOS</h3>
+                <p>Mira los últimos GIFOS de nuestra comunidad.</p>
+            </div>
+            <div class="gallery">
+                <div class="arrows" >
+                    <img src="../assets/arrow/left/button-slider-left.svg" alt="arrowleft" id="left">
+                </div>
+                    <div id="gifs">
+                        
+                    </div>
+                <div class="arrows">
+                    <img src="../assets/arrow/right/button-slider-right.svg" alt="arrowright" id="right">
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>Compartir en:</p>
+        <div class="sharing">
+            <img src="../assets/facebook/icon_facebook.svg" alt="" id="facebook">
+            <img src="../assets/twitter/icon_twitter.svg" alt="" id="twitter">
+            <img src="../assets/insta/icon_instagram.svg" alt="" id="insta">
+        </div>
+        <div class="copyright">© GIFOS 2021 All Rights Reserved.</div>
+        <script src="../javascript/index.js" ></script>
+    </footer>
+    <div class="blueline"></div>
+</body>
+</html>

@@ -1,0 +1,123 @@
+#creategifmain {
+    height: 570px;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(8,1fr);
+    #controls {
+        grid-column-start: 2;
+        grid-column-end: 6;
+        grid-row-start: 8;
+        grid-row-end: 9;
+        display: flex;
+        flex-direction: column;
+        >div {
+            display: flex;
+            >img {
+                margin-bottom: 15px;
+                padding: 0rem 1rem;
+            }
+        }
+        >button {
+            background-color: transparent;
+            width: 32px;
+            height: 32px;
+            margin: 0rem 1rem;
+            border: 0;
+        }
+        .underline {
+            background-color:$lightpurplecolor;
+            width: 100%;
+            height: 7px;
+            margin: 0px;
+        }
+        #startcam {
+            align-self: center;
+            width: 127px;
+            height: 50px;
+            padding: 10px;
+            border-radius: 25px;
+            border: 1px solid $lightpurplecolor;
+            color: $lightpurplecolor;
+            margin-top: 21px;
+        }
+    }
+    #container-build {
+        border: $lightpurplecolor 1px solid;
+        width: 688px;
+        height: 390px;
+        margin: 0px;
+        grid-column-start: 2;
+        grid-column-end: 6;
+        grid-row-start: 1;
+        grid-row-end: 5;
+        justify-self: center;
+        display: flex;
+        display: grid;
+        grid-template-columns: auto 1fr 1fr 1fr auto;
+        grid-template-rows: repeat(4, 1fr);
+        #centercam {
+            grid-row-start: 2;
+            grid-row-end: 4;
+            grid-column-start: 2;
+            grid-column-end: 5;
+            > div {
+                display: flex;
+                flex-direction: column;
+                >h1 {
+                    font-size: 25px;
+                    color: $lightpurplecolor;
+                    text-align: center;
+                    line-height: 35px;
+                    padding: 0px 4rem;
+                    >span {
+                        color: $lightgreencolor;
+                    }
+                }
+            }
+        }
+        #topleft {
+            grid-column-start: 1;
+            grid-column-end: 2;
+            place-self: flex-start;
+            width: 27px;
+            height: 25px;
+            margin: 25px;
+            border-left: $lightgreencolor 1px solid;
+            border-top: $lightgreencolor 1px solid;
+        }
+        #topright {
+            grid-column-start: 5;
+            grid-column-end: 6;
+            place-self: flex-start;
+            width: 27px;
+            height: 25px;
+            margin: 25px;
+            border-right: $lightgreencolor 1px solid;
+            border-top: $lightgreencolor 1px solid;
+        }
+        #bottomleft {
+            grid-column-start: 1;
+            grid-column-end: 2;
+            grid-row-start: 4;
+            grid-row-end: 5;
+            place-self: flex-end;
+            width: 27px;
+            height: 25px;
+            margin: 25px;
+            border-left: $lightgreencolor 1px solid;
+            border-bottom: $lightgreencolor 1px solid;
+        }
+        #bottomright {
+            grid-column-start: 5;
+            grid-column-end: 6;
+            grid-row-start: 4;
+            grid-row-end: 5;
+            place-self: flex-end;
+            width: 27px;
+            height: 25px;
+            margin: 25px;
+            border-right: $lightgreencolor 1px solid;
+            border-bottom: $lightgreencolor 1px solid;
+        }
+    }
+}

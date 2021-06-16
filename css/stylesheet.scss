@@ -1,0 +1,139 @@
+@import "variables";
+@import "header";
+@import "title";
+@import "nav";
+@import "trending";
+@import "footer";
+@import "misgifos";
+@import "creategifs";
+@import "btn";
+@import "favoritos";
+@import "placegiftcrafter";
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: $font;
+    text-align: center;
+}
+
+.blueline {
+    width: 100%;
+    height: 5px;
+    background-color: $lightpurplecolor;
+}
+
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: rgb(47, 47, 47);
+        color: white;
+        header {
+            background-color: inherit;
+            ul {
+                background-color: black;
+            }
+            input:checked {
+                ~ label span{
+                background-color: transparent;
+                }
+                ~ label span::before{
+                    background-color: white;
+                }
+                ~ label span::after{
+                    background-color: white;
+                }
+            }
+            label span{
+                background-color: white;
+            }
+        }
+        .trendinggifos {
+            background-color: #222326;
+            color: white;
+        }
+        .gifosimg {
+            color: white;
+        }
+        .emptyscreen {
+            h3 {
+                color: white;
+                font-size: 23px;
+            }
+        }
+        .navsphere {
+            input {
+                color: white;
+            }
+        }
+    }
+
+    header input:checked ~ label span{
+        background-color: transparent;
+    }
+    header input:checked ~ label span::before{
+        transform: rotate(-45deg);
+        background-color: darkblue;
+        top: 0;
+    }
+    header input:checked ~ label span::after{
+        transform: rotate(45deg);
+        background-color: darkblue;
+        top: 0;
+    }
+
+
+
+
+    body.light-theme {
+        background-color: white;
+        header {
+            background-color: inherit;
+            color: white;
+            ul {
+                background-color: rgba(87,46,229,0.90);
+            }
+            input:checked {
+                ~ label span{
+                background-color: transparent;
+                }
+                ~ label span::before{
+                    background-color: darkblue;
+                }
+                ~ label span::after{
+                    background-color: darkblue;
+                }
+            }
+            label span{
+                background-color: darkblue;
+            }
+        }
+        .trendinggifos {
+            background-color: #F3F5F8;
+            color: black;
+            width: 100%;
+            p {
+                color: black;
+            }
+        }
+        footer {
+            color: initial;
+        }
+        .gifosimg {
+            color: $lightpurplecolor;
+        }
+        h3 {
+            color: $lightgreencolor;
+            font-size: 23px;
+        }
+        p {
+            color: black;
+        }
+        
+        .navsphere {
+            input {
+                color: black;
+            }
+        }
+    }
+}

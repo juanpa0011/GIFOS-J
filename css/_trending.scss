@@ -1,0 +1,104 @@
+.trending {
+    div {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-bottom: 45px;
+        width: 236px;
+        justify-self: center;
+        align-self: center;
+        p {
+            size: 14px;
+            color: $lightpurplecolor;
+            align-self: center;
+        }
+        h4 {
+            padding-bottom: 5px;
+            size: 19px;
+            color: $lightpurplecolor;
+            align-self: center;
+        }
+    }
+}
+
+.trendinggifos {
+    display: flex;
+    flex-direction: column;
+    background-color: $lightwhite;
+    height: 430px;
+    .galleryfoot {
+        width: 330px;
+        margin-top: 36px;
+        display: flex;
+        flex-direction: column;
+        align-self: center;
+        h3 {
+            align-self: center;
+            color: $lightpurplecolor;
+        }
+        p {
+            align-self: center;
+        }
+    }
+    .gallery {
+        flex-direction: row;
+        align-self: center;
+        width: 260px;
+        height: 180px;
+        margin-bottom: 82px;
+        margin-top: 32px;
+        .arrows {
+            display: none;
+        }
+    }
+}
+
+@media (min-width: 540px) {
+    .trending {
+        div {
+            margin-top: 70px;
+            margin-bottom: 95px;
+            width: 100%;
+            justify-self: center;
+            align-self: center;
+            p {
+                width: 100%;
+                size: 14px;
+                color: $lightpurplecolor;
+                align-self: center;
+            }
+            h4 {
+                padding-bottom: 5px;
+                size: 19px;
+                color: $lightpurplecolor;
+                align-self: center;
+            }
+        }
+    }
+    .trendinggifos {
+        height: 640px;
+        .gallery{
+            justify-self: flex-start;
+            align-self: center;
+            width: 90%;
+            height: 275px;
+            margin-right: 94px;
+            margin-left: 94px;
+            margin-bottom: 182px;
+            margin-top: 53px;
+            #gifs {
+                width: 1050px;
+                height: 100%;
+                overflow: hidden;
+            }
+            .arrows {
+                font-style: none;
+                background-color: none;
+                width: 40px;
+                height: 40px;
+                align-self: center;
+                display: initial;
+            }
+        }
+    }
+}

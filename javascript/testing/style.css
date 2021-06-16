@@ -1,0 +1,14 @@
+#conteiner img {
+    width: 100%;
+    height: 100%;
+}
+
+#conteiner{
+    display: grid;
+    gap: 10px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    width: 900px;
+    height: 200px;
+    margin-top: 20px
+}

@@ -1,0 +1,37 @@
+main {
+    div {
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+    .title {
+        width: 76%;
+        height: 100px;
+        h1 {
+            font-size: 25px;
+            text-align: center;
+            color: $lightpurplecolor;
+            span {
+                color: $lightgreencolor;
+            }
+        }
+    }
+    }
+}
+
+@media (min-width: 540px) {
+    main {
+        #containertitle{
+            display: flex;
+            justify-self: center;
+            margin-top: 10px;;
+            .title {
+                width: 600px;
+                margin-bottom: 20px;
+                h1 {
+                    font-size: 35px;
+                    line-height: 50px;
+                }
+            }
+        }
+    }
+}
