@@ -43,12 +43,20 @@
     .gallery {
         flex-direction: row;
         align-self: center;
-        width: 260px;
+        width: 100%;
         height: 180px;
         margin-bottom: 82px;
         margin-top: 32px;
         .arrows {
             display: none;
+        }
+        #gifs {
+            width: 260px;
+            height: 100%;
+            overflow-x: scroll;
+            img {
+                margin: 0rem 0.5rem;
+            }
         }
     }
 }
@@ -86,10 +94,17 @@
             margin-left: 94px;
             margin-bottom: 182px;
             margin-top: 53px;
+            overflow: hidden;
             #gifs {
                 width: 1050px;
                 height: 100%;
+                margin: 0px;
                 overflow: hidden;
+                    img {
+                        //width: 35%;
+                        height: inherit;
+                        margin: 0rem 14px;
+                    }
             }
             .arrows {
                 font-style: none;
@@ -98,6 +113,8 @@
                 height: 40px;
                 align-self: center;
                 display: initial;
+                margin: 5px;
+                margin-top: 20px;
             }
         }
     }

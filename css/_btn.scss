@@ -1,11 +1,10 @@
-.btn {
+.container_btn {
     margin-top: 78px;
     margin-bottom: 76px;
-    button {
-        border: $lightpurplecolor solid 1px;
-        padding: 13px 25px;
-        border-radius: 25px;
-        background: white;
-        font-family: $font;
-    }
+    display: flex;
+    justify-content: center;
+}
+
+.btn--index {
+    display: none;
 }

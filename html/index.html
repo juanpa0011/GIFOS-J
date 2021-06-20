@@ -6,39 +6,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="../css/stylesheet.css">
+    <link rel="stylesheet" href="../css/main.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;900&display=swap" rel="stylesheet">
     <title>GIFOS-J</title>
 </head>
 <body>
-    <div class="blueline"></div>
+    <div class="blueline" id="top_blue"></div>
     <header id="sticky">
         <input id="checkbox" type="checkbox">
         <label for="checkbox"><span></span></label>
+        
         <div class="logomobile">
-            <img src="../assets/logo/logo-mobile.svg" alt="logo">
+            <a href="./index.html"><div></div></a>
         </div>
         <div class="logodesk">
-            <img src="../assets/logo/logo-desktop.svg" alt="logo">
+            <a href="./index.html"><div></div></a>
         </div>
-        <div class="navheader" id="sticknav">
-            <input type="text" placeholder="Busca GIFOS y más">
-            <img src="../assets/searching/icon-search.svg" alt="backgroundImg">
-        </div>
+
         <ul>
             <li><a href="#" id="darkness">MODO NOCTURNO</a></li>
             <div class="greyline"></div>
-            <li><a href="./favoritos.html">FAVORITOS</a></li>
+            <li><a id="gotofav" href="./favoritos.html">FAVORITOS</a></li>
             <div class="greyline"></div>
             <li><a href="./misGifos.html">MIS GIFOS</a></li>
             <div class="greyline"></div>
         </ul>
         <div class="plusbtn">
-            <a href="./creargifo.html"><img id="creategift" src="../assets/plusbtn/button-crear-gifo.svg" alt="crearGift"> </a>
+            <a href="./creargifo.html"><div id="creategift"></a>
         </div>
     </header>
-    <main>
+    <main id="main">
         <div id="containertitle">
             <div class="title">
                 <h1>Inspírate, busca, guarda, y crea los mejores <span>GIFOS</span></h1>
@@ -61,8 +60,10 @@
         <div id="gifobuilder">
             
         </div>
-        <div class="btn"> 
-            <img id="showmore" src="../assets/viewmorebtn/ver-mas.svg" alt="ver mas">
+        <div class="container_btn"> 
+            <div class="btn--index">
+
+            </div>
         </div>
         <div class="trendinggifos">
             <div class="galleryfoot">
@@ -82,16 +83,34 @@
             </div>
         </div>
     </main>
-    <footer>
+    <section class="maximizar hidden" id="popup__section">
+        <div class="maximizar__container">
+        <div class="maximizar__container-close" id="popup__btn--cross"></div>
+        <div class="maximizar__container-image">
+            <img src="../assets/images/Nyan Cat GIF.gif" alt="Nyan Cat" id="popup__gif--max">
+        </div>
+        <div class="maximizar__container-data">
+            <div class="text">
+            <h1 id="gif_title">Nazgul</h1>
+            <h2 id="gif_username">Nyan cat (original)</h2>
+            </div>
+            <div class="actions">
+<!--             <div class="favorites" id="popup__btn--fav"></div>
+            <div class="download" id="popup__btn--down"></div> -->
+            </div>
+        </div>
+        </div>
+    </section>
+    <footer id="footer">
         <p>Compartir en:</p>
         <div class="sharing">
-            <img src="../assets/facebook/icon_facebook.svg" alt="" id="facebook">
-            <img src="../assets/twitter/icon_twitter.svg" alt="" id="twitter">
-            <img src="../assets/insta/icon_instagram.svg" alt="" id="insta">
+            <a href="https://www.facebook.com/"><div id="facebook"></div></a>
+            <a href="https://twitter.com/?lang=es"><div id="twitter"></div></a>
+            <a href="https://www.instagram.com/?hl=es-la"><div id="insta"></div></a>
         </div>
         <div class="copyright">© GIFOS 2021 All Rights Reserved.</div>
-        <script src="../javascript/index.js" ></script>
     </footer>
-    <div class="blueline"></div>
+    <div class="blueline" id="bottom_blue"></div>
+    <script src="../javascript/index.js" ></script>
 </body>
 </html>

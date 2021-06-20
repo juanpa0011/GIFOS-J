@@ -15,19 +15,15 @@
         <input id="checkbox" type="checkbox">
         <label for="checkbox"><span></span></label>
         <div class="logomobile">
-            <a href="./index.html"><img src="../assets/logo/logo-mobile.svg" alt="logo"></a>
+            <a href="./index.html"><div></div></a>
         </div>
         <div class="logodesk">
-            <a href="./index.html"><img src="../assets/logo/logo-desktop.svg" alt="logo"></a>
-        </div>
-        <div class="navheader">
-            <input type="text" placeholder="Busca GIFOS y más">
-            <img src="../assets/icon-search.svg" alt="backgroundImg">
+            <a href="./index.html"><div></div></a>
         </div>
         <ul>
             <li><a href="#" id="darkness">MODO NOCTURNO</a></li>
             <div class="greyline"></div>
-            <li><a style="color: #9CAFC3;" href="./favoritos.html">FAVORITOS</a></li>
+            <li><a id="gotofav" style="color: #9CAFC3;" href="./favoritos.html">FAVORITOS</a></li>
             <div class="greyline"></div>
             <li><a href="./misGifos.html">MIS GIFOS</a></li>
             <div class="greyline"></div>
@@ -41,24 +37,33 @@
             <img src="../assets/favoritos/icon-favoritos.svg" alt="">
             <h1>Favoritos</h1>
         </div>
-        <div class="emptyScreen">
+        <div class="emptyScreen" id="emptyFav">
             <img src="../assets/favoritos/icon-fav-sin-contenido.svg" alt="sin-contenido">
             <h3>¡Guarda tu primer GIFO en Favoritos 
                 para que se muestre aquí!</h3>
         </div>
-        <div class="misgifos">
+        <div class="misgifos" id="misFavor">
         </div>
-        <div class="btn">
-            <img id="showmore" src="../assets/viewmorebtn/CTA-ver-mas.svg" alt="ver mas">
+        <div class="container_btn"> 
+            <div class="btn--favoritos">
+            </div>
         </div>
+        
     <div class="trendinggifos" id="trendingsticky">
         <div class="galleryfoot">
             <h3>Trending GIFOS</h3>
             <p>Mira los últimos GIFOS de nuestra comunidad.</p>
         </div>
         <div class="gallery">
-            <h4></h4>
-            <p></p>
+            <div class="arrows" >
+                <img src="../assets/arrow/left/button-slider-left.svg" alt="arrowleft" id="left">
+            </div>
+                <div id="gifs">
+                    
+                </div>
+            <div class="arrows">
+                <img src="../assets/arrow/right/button-slider-right.svg" alt="arrowright" id="right">
+            </div>
         </div>
     </div>
     </main>
@@ -66,12 +71,13 @@
     <footer>
         <p>Compartir en:</p>
         <div class="sharing">
-            <img src="../assets/facebook/icon_facebook.svg" alt="" id="facebook">
-            <img src="../assets/twitter/icon_twitter.svg" alt="" id="twitter">
-            <img src="../assets/insta/icon_instagram.svg" alt="" id="insta">
+            <a href="https://www.facebook.com/"><div id="facebook"></div></a>
+            <a href="https://twitter.com/?lang=es"><div id="twitter"></div></a>
+            <a href="https://www.instagram.com/?hl=es-la"><div id="insta"></div></a>
         </div>
         <div class="copyright">© GIFOS 2021 All Rights Reserved.</div>
         <script src="../javascript/index.js" ></script>
+        <script src="../javascript/favoritos.js"></script>
     </footer>
     <div class="blueline"></div>
 </body>

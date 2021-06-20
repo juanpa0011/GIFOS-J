@@ -1,12 +1,12 @@
 const arrright = document.getElementById('right');
 const arrleft = document.getElementById('left');
+
 const btnPlus = document.getElementById('creategift');
-const facebook = document.getElementById('facebook');
-const twitter = document.getElementById('twitter');
-const insta = document.getElementById('insta');
-const sticknav = document.getElementById('sticknav');
 const showmore = document.getElementById('showmore');
-const inputsearch = document.getElementById('buscador');
+const search = document.getElementById('buscador');
+
+//Mis Favor
+const misFavor = document.getElementById('misFavor');
 
 // STICKY NEEDED CODE
 const header = document.getElementById('sticky');
@@ -17,6 +17,10 @@ const dark = document.getElementById('darkness');
 const configUser = window.matchMedia('(prefers-color-scheme: dark)')
 const localSt = localStorage.getItem('theme');
 
+const conteiner = document.getElementById('gifobuilder');
+const searchingAnim = document.getElementById('buscadoranimation');
+
+
 // SVGs PATH () //
 const path = "../assets/"
 
@@ -25,7 +29,6 @@ if(localSt === 'dark') {
 }
 else if (localSt === 'light') {
     document.body.classList.toggle('light-theme')
-
 }
 // los value de  localStorage seran 'dark' y 'light'
 dark.addEventListener('click',() => {
@@ -49,31 +52,6 @@ dark.addEventListener('click',() => {
 
 let pathFinders = [];
 
-class Pathfinder {
-    constructor(HTMLelement, hoverSvg, leaveSvg, clickSvg, nocSvg, nocHoverSvg) {
-        this.HTMLelement = HTMLelement;
-
-        this.hoverSvg = path + hoverSvg;
-        this.leaveSvg = path + leaveSvg;
-        this.clickSvg = path + clickSvg;
-        this.nocSvg = path + nocSvg;
-        this.nocHoverSvg = path + nocHoverSvg;
-    }
-    Init() {
-        this.HTMLelement.addEventListener("mouseover",() => {
-            this.HTMLelement.src = this.hoverSvg;
-        });
-        this.HTMLelement.addEventListener("mouseleave",() => {
-            this.HTMLelement.src = this.leaveSvg;
-        });
-        if (this.clickSvg != "") {
-            this.HTMLelement.addEventListener("click",() => {
-                this.HTMLelement.src = this.clickSvg;
-            });  
-        }
-    }    
-}
-
 
 let trendingArr = []; //All images urls are added here.
 const displayAtOneTime = 3;
@@ -86,64 +64,12 @@ function InitTrending() {
     displayed = trendingArr.slice(0, 3)
 }
 
-//On next
-/*
-function onNext() {
-    if (trendingArr.length > displayAtOneTime) {
-        displayed.reverse().pop();
-        displayed.push(trendingArr[index]);
-        index += 1;
-        if (index > trendingArr.length - 1) {
-            index = 0;
-        }
-    } else {
-        alert("Not enough images found")
-    }
-}
-function onPrevious() {
-    if (trendingArr.length > displayAtOneTime) {
-        displayed.reverse().pop();
-        displayed.push(trendingArr[index]);
-        index -= 1;
-        if (index < 0) {
-            index = trendingArr.length - 1;
-        }
-    } else {
-        alert("Not enough images found")
-    }
-}
-*/
-
-
-function AddAllListeners() {
-    pathFinders.push(new Pathfinder(arrright, "arrow/right/button-slider-right-hover.svg", "arrow/right/button-slider-right.svg", "arrow/right/button-slider-right-hover.svg", "arrow/right/button-slider-right-md-noct.svg", "arrow/right/button-slider-right-hover.svg"))
-
-    pathFinders.push(new Pathfinder(arrleft, "arrow/left/button-slider-left-hover.svg", "arrow/left/button-slider-left.svg", "arrow/left/button-slider-left-hover.svg", "arrow/left/button-slider-left-md-noct.svg", "arrow/left/button-slider-left-hover.svg"))
-
-    pathFinders.push(new Pathfinder(btnPlus, "plusbtn/CTA-crear-gifo-hover.svg", "plusbtn/button-crear-gifo.svg", "plusbtn/CTA-crear-gifo-active.svg", "plusbtn/CTA-crear-gifo-modo-noc.svg", "plusbtn/CTA-crear-gifo-hover-modo-noc.svg"))
-
-    pathFinders.push(new Pathfinder(facebook, "facebook/icon_facebook_hover.svg","facebook/icon_facebook.svg", "facebook/icon_facebook_hover.svg", "facebook/icon_facebook_noc.svg", "facebook/icon_facebook_hover.svg"))
-
-    pathFinders.push(new Pathfinder(twitter, "twitter/icon_twitter-hover.svg","twitter/icon_twitter.svg", "twitter/icon_twitter-hover.svg", "twitter/icon_twitter_noc.svg", "twitter/icon_twitter-hover.svg"))
-
-    pathFinders.push(new Pathfinder(insta, "insta/icon_instagram-hover.svg","insta/icon_instagram.svg", "insta/icon_instagram-hover.svg", "insta/icon_instagram_noc.svg", "insta/icon_instagram-hover.svg"))
-
-    pathFinders.push(new Pathfinder(showmore, "viewmorebtn/ver-mas-hover.svg","viewmorebtn/ver-mas.svg", "viewmorebtn/ver-mas-hover.svg", "viewmorebtn/ver-mas-noc.svg", "viewmorebtn/ver-mas-hover-noc.svg"))
-}
-
-
-
-
-AddAllListeners();
-
-
-
-// HEADER - Sticky Code //
+// ========================= HEADER - Sticky Code //
 
 window.onscroll = function() {stickyfunction()};
 
 // Get the offset position of the navbar
-let sticky = nav.offsetTop;
+let sticky = null;
 
 function stickyfunction() {
     if (window.pageYOffset > sticky) {
@@ -153,7 +79,7 @@ function stickyfunction() {
     }
 }
 
-// HEADER - Sticky END //
+// ===================== HEADER - Sticky END //
 
 
 // Searching Images
@@ -161,6 +87,14 @@ function stickyfunction() {
   // ---- search gifos ----
 
 const cant = ()=>{
+    deleteNode(conteiner);
+    let A = document.getElementById('searchResult');
+    A.innerHTML = search.value;
+    
+    if(info.data.lenght == 0) {
+        console.log("Here")
+        return
+    }
     for(let i = 0 ; i< cantidad ; i++){
         let placeholder = document.createElement('div');
         placeholder.className = 'placeholder';
@@ -176,24 +110,97 @@ const cant = ()=>{
         svgMax.className = "iconholder"
 
         let svgDownload = document.createElement('img');
-        svgDownload.src = path + "link/icon-link-normal.svg";
+        svgDownload.src = path + "download/icon-download.svg";
         svgDownload.className = "iconholder"
     
         let img = document.createElement('img');
 
-
-        img.id = i;
+        img.id = info.data[i].id;
         img.src = info.data[i].images.original.url;
 
         placeholder.appendChild(img);
+        img.addEventListener('click', () => {
+            console.log("AAAH")
+            popUp(info.data[i].id, info.data[i].images.original.url, info.data[i].username, info.data[i].title);
+        })
         btnholder.appendChild(svgFav);
+        svgFav.addEventListener('click',() => {
+            addFavorites(info.data[i].id, info.data[i].images.original.url, info.data[i].username, info.data[i].title);
+        })
         btnholder.appendChild(svgMax);
+        svgMax.addEventListener('click', () => {
+            popUp(info.data[i].id, info.data[i].images.original.url, info.data[i].username, info.data[i].title);
+        })
         btnholder.appendChild(svgDownload);
         placeholder.appendChild(btnholder);
         conteiner.appendChild(placeholder);
         ConstructImgHolder.push = new ConstructImgHolder(img,btnholder,svgFav,svgMax,svgDownload);
     }
     searchAnimationEnd()
+}
+
+//
+
+const popupCross = document.getElementById("popup__btn--cross");
+const popupImg = document.getElementById("popup__gif--max");
+const popupTitle = document.getElementById("gif_title");
+const popupUser = document.getElementById("gif_username");
+/* const popupBtnFav = document.getElementById("popup__btn--fav");
+const popupBtnDown = document.getElementById("popup__btn--down"); */
+const actions = document.querySelector('.actions')
+const popup__section = document.getElementById("popup__section");
+const popup__container = document.querySelector('maximizar__container');
+
+//
+const blue_bottom = document.getElementById('bottom_blue');
+const blue_top = document.getElementById('top_blue');
+const main = document.getElementById('main');
+const footer = document.getElementById('footer')
+// Header
+//
+
+
+function popUp ( id, url, user, title) {
+    deleteNode(actions);
+    let popupBtnFav = document.createElement('div');
+    popupBtnFav.setAttribute("class", "favorites")
+    actions.appendChild(popupBtnFav);
+    let popupBtnDown = document.createElement('div');
+    popupBtnDown.setAttribute("class", "download")
+    actions.appendChild(popupBtnDown);
+
+    popupImg.setAttribute("src", url)
+    popupImg.setAttribute("id", id)
+    popupTitle.textContent = title;
+    popupUser.textContent = user;
+
+    blue_bottom.classList.add("hidden");
+    blue_top.classList.add("hidden");
+    main.classList.add("hidden");
+    footer.classList.add("hidden");
+    header.classList.add("hidden");
+    popup__section.classList.remove("hidden");
+
+    popupCross.addEventListener('click', () => {
+        popup__section.classList.remove("hidden");
+        blue_bottom.classList.remove("hidden");
+        blue_top.classList.remove("hidden");
+        main.classList.remove("hidden");
+        footer.classList.remove("hidden");
+        header.classList.remove("hidden");
+        popup__section.classList.add("hidden");
+    })
+    popupBtnFav.addEventListener('click', () => {
+        addFavorites(id, url, user, title);
+    })
+    popupBtnDown.addEventListener('click', () => {
+        download(id, title);
+    })
+
+}
+
+function deleteElement (element) {
+    element.remove()
 }
 
 function searchAnimation () {
@@ -203,10 +210,6 @@ function searchAnimation () {
 function searchAnimationEnd() {
     searchingAnim.src = path + "loadingcheck/ok.svg";
 }
-
-const search = document.getElementById('buscador');
-const conteiner = document.getElementById('gifobuilder');
-const searchingAnim = document.getElementById('buscadoranimation');
 
 
 let info;
@@ -257,32 +260,124 @@ class ConstructImgHolder {
             this.HTMLMax.src = path + "max/icon-max-normal.svg";
         });
         this.HTMLDownload.addEventListener("mouseover",() =>{
-            this.HTMLDownload.src = path + "link/icon-link-hover.svg";
+            this.HTMLDownload.src = path + "download/icon-download-hover.svg";
         });
         this.HTMLDownload.addEventListener("mouseleave",() =>{
-            this.HTMLDownload.src = path + "link/icon-link-normal.svg";
+            this.HTMLDownload.src = path + "download/icon-download.svg";
         });
     }
 }
 
-
 let cantidad = '12';
+
 window.addEventListener("keydown", (e) => {
     if (e.key == "Enter") {
-        let condition = undefined;
         let searchvalue = search.value;
         searchAnimation();
         newSearch(searchvalue);
     }
 })
-/*
-const myPromise = new Promise((resolve, reject) => {
-    let condition;
 
-    if(condition is met) {
-        resolve('Promise is resolved successfully.');
-    } else {
-        reject('Promise is rejected');
+// ===================================================== Trending
+
+let trendLimit = '9';
+let arrayImg = [];
+let arrayIndex = 0;
+trendingCrafter();
+async function trendingCrafter() {
+    const apiKey = 'T96v34LvfncPq5iV6LjP4GsHYqeQEupg';
+    const url = `https://api.giphy.com/v1/gifs/trending?api_key=${apiKey}&limit=${trendLimit}`;
+
+    try {
+        const response = await fetch(url);
+        info = await response.json();
+        trendingDownload();
+    } catch (err) {
+        console.log(err);
     }
-});
-*/
+
+}
+const containerTrend = document.getElementById('gifs');
+const trendingDownload = ()=>{
+    for(let i = 0 ; i< trendLimit ; i++){
+        arrayImg[i] = info.data[i].images.original.url
+    }
+    showTrendArray();
+}
+
+function showTrendArray () {
+    for (let i = 0; i < 8; i++) {
+        let img = document.createElement('img');
+        img.src = arrayImg[arrayIndex];
+        containerTrend.appendChild(img);
+        arrayIndex++;
+    }
+}
+
+arrright.addEventListener('click', () => {
+    containerTrend.scrollLeft+= 400;
+})
+
+arrleft.addEventListener('click', () => {
+    containerTrend.scrollLeft-=400;
+})
+
+
+// ===================================================== Trending End
+
+
+// AUXILIAR FEDE EL AMOR =========================================
+
+
+function deleteNode (node) {
+    while(node.lastChild) {
+        node.lastChild.remove();
+    }
+}
+
+/* FUNCIÓN AGREGAR A FAVORITOS*/
+const addFavorites = (id, url, username, title) => {
+    let LS = JSON.parse(localStorage.getItem('favorites'));
+    if (LS !== null && LS.length > 0) {
+        const exist = LS.filter(element => element.id == id);
+        if (!exist.length == 1) {
+            const favorite = {
+                id: id,
+                url: url,
+                username: username,
+                title: title
+            };
+            LS.push(favorite);
+            localStorage.setItem('favorites', JSON.stringify(LS));
+        }
+    } else {
+        const LS = [];
+        const favorite = {
+        id,
+        url,
+        username,
+        title
+        };
+        LS.push(favorite);
+        localStorage.setItem('favorites', JSON.stringify(LS));
+    }
+};
+
+// ============================ //
+
+/* FUNCIÓN DESCARGAR GIF */
+const download = async (id, title) => {
+    let a = document.createElement('a');
+    try {
+        let response = await fetch(`https://media.giphy.com/media/${id}/giphy.gif`);
+        let file = await response.blob();
+        a.download = title;
+        a.href = window.URL.createObjectURL(file);
+        a.dataset.downloadurl = ['application/octet-stream', a.download, a.href].join(':');
+        a.click();
+    } catch (error) {
+        console.error(error);
+    }
+};
+
+// ============================ //

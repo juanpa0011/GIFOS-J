@@ -1,0 +1,215 @@
+@media (prefers-color-scheme: dark) {
+    body {
+        .btn--index, .btn--favoritos, .btn--misgifos{
+            background: url("../assets/viewmorebtn/ver-mas-noc.svg");
+            width: 127px;
+            height: 50px;
+            &:hover{
+                background: url("../assets/viewmorebtn/ver-mas-hover-noc.svg");
+            }
+        }
+        background-color: rgb(47, 47, 47);
+        color: white;
+        header {
+            .logomobile {
+                >a div {
+                    background: url("../assets/logo/logo-mobile-modo-noct.svg") no-repeat center;
+                }
+            }
+            .logodesk {
+                >a div {
+                    background: url("../assets/logo/Logo-modo-noc.svg") no-repeat center;
+                }
+            }
+            .plusbtn {
+                div {
+                    background: url("../assets/plusbtn/CTA-crear-gifo-modo-noc.svg") no-repeat center;
+                    &:hover {
+                        background: url("../assets/plusbtn/CTA-crear-gifo-hover-modo-noc.svg")
+                    }
+                }
+            }
+            background-color: inherit;
+            ul {
+                background-color: black;
+            }
+            input:checked {
+                ~ label span{
+                background-color: transparent;
+                }
+                ~ label span::before{
+                    background-color: white;
+                }
+                ~ label span::after{
+                    background-color: white;
+                }
+            }
+            label span{
+                background-color: white;
+            }
+        }
+        .trendinggifos {
+            background-color: #222326;
+            color: white;
+        }
+        .gifosimg {
+            color: white;
+        }
+        .emptyscreen {
+            h3 {
+                color: white;
+                font-size: 23px;
+            }
+        }
+        .navsphere {
+            input {
+                color: white;
+            }
+        }
+        h2 {
+            color: white;
+        }
+        .sharing {
+            #facebook{
+                background: url("../assets/facebook/icon_facebook_noc.svg") no-repeat center;
+                &:hover {
+                    background: url("../assets/facebook/icon_facebook_hover.svg") no-repeat center;
+                }
+            }
+            #twitter{
+                background: url("../assets/twitter/icon_twitter_noc.svg") no-repeat center;
+                &:hover {
+                    background: url("../assets/twitter/icon_twitter-hover.svg") no-repeat center;
+                }
+            }
+            #insta {
+                background: url("../assets/insta/icon_instagram_noc.svg") no-repeat center;
+                &:hover {
+                    background: url("../assets/insta/icon_instagram-hover.svg") no-repeat center;
+                }
+            }
+        }
+    }
+
+    header input:checked ~ label span{
+        background-color: transparent;
+    }
+    header input:checked ~ label span::before{
+        transform: rotate(-45deg);
+        background-color: darkblue;
+        top: 0;
+    }
+    header input:checked ~ label span::after{
+        transform: rotate(45deg);
+        background-color: darkblue;
+        top: 0;
+    }
+
+        // Light - Theme.
+
+
+    body.light-theme {
+        background-color: white;
+        .btn--index, .btn--favoritos, .btn--misgifos{
+            background-image: url("../assets/viewmorebtn/ver-mas.svg");
+            width: 127px;
+            height: 50px;
+            .btn--index:hover, .btn--favoritos:hover, .btn--misgifos:hover {
+                background-image: url("../assets/viewmorebtn/ver-mas-hover.svg");
+            }
+        }
+        header {
+            background-color: inherit;
+            color: white;
+            .logomobile {
+                a {
+                    div {
+                    background: url("../assets/logo/logo-mobile.svg") no-repeat center;
+                    }
+                }
+            }
+            .logodesk {
+                a {
+                    div {
+                    background: url("../assets/logo/logo-mobile.svg") no-repeat center;
+                    }
+                }
+            }
+            ul {
+                background-color: rgba(87,46,229,0.90);
+            }
+            .plusbtn {
+                div {
+                    background: url("../assets/plusbtn/button-crear-gifo.svg") no-repeat center;
+                    &:hover {
+                        background: url("../assets/plusbtn/CTA-crear-gifo-hover.svg")
+                    }
+                }
+            }
+            input:checked {
+                ~ label span{
+                background-color: transparent;
+                }
+                ~ label span::before{
+                    background-color: darkblue;
+                }
+                ~ label span::after{
+                    background-color: darkblue;
+                }
+            }
+            label span{
+                background-color: darkblue;
+            }
+        }
+        .trendinggifos {
+            background-color: #F3F5F8;
+            color: black;
+            width: 100%;
+            p {
+                color: black;
+            }
+        }
+        footer {
+            color: initial;
+            .sharing {
+                #facebook{
+                    background: url("../assets/facebook/icon_facebook.svg") no-repeat center;
+                    &:hover {
+                        background: url("../assets/facebook/icon_facebook_hover.svg") no-repeat center;
+                    }
+                }
+                #twitter{
+                    background: url("../assets/twitter/icon_twitter.svg") no-repeat center;
+                    &:hover {
+                        background: url("../assets/twitter/icon_twitter-hover.svg") no-repeat center;
+                    }
+                }
+                #insta {
+                    background: url("../assets/insta/icon_instagram.svg") no-repeat center;
+                    &:hover {
+                        background: url("../assets/insta/icon_instagram-hover.svg") no-repeat center;
+                    }
+                }
+            }
+        }
+        .gifosimg {
+            color: $lightpurplecolor;
+        }
+        h3 {
+            color: $lightgreencolor;
+            font-size: 23px;
+        }
+        h2 {
+            color: $lightpurplecolor;
+        }
+        p {
+            color: black;
+        }
+        
+        .navsphere {
+            input {
+                color: black;
+            }
+        }
+    }
+}

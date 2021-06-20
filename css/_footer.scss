@@ -10,11 +10,8 @@ footer {
         display: flex;
         flex-direction: row;
         align-self: center;
-        img {
+        div {
             padding: 22px 19px;
-        }
-        #facebook :hover {
-            filter: url(./imgs/svg/facebook/icon_facebook_hover.svg);
         }
     }
     .copyright {
@@ -44,7 +41,7 @@ footer {
         }
         .sharing {
             margin: 0px;
-            img {
+            div {
                 padding: 20px;
             }
         }

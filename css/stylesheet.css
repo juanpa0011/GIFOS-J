@@ -14,11 +14,13 @@ header {
 
 header #checkbox {
   visibility: hidden;
+  margin: 0px;
 }
 
 header .logomobile {
   display: initial;
   width: 125px;
+  height: 50px;
   justify-self: flex-start;
   padding-top: 1rem;
   -ms-grid-column: 1;
@@ -28,13 +30,13 @@ header .logomobile {
       grid-row-start: 1;
 }
 
-header .navheader {
-  display: none;
+header .logomobile a div {
+  width: 125px;
+  height: 50px;
 }
 
 header label {
   justify-self: flex-end;
-  float: right;
   cursor: pointer;
   margin-top: 15px;
   -ms-grid-column: 2;
@@ -187,7 +189,14 @@ a {
   .logodesk {
     display: initial;
     width: 125px;
+    height: 50px;
     margin-left: 40%;
+    justify-self: flex-start;
+    padding-bottom: 15px;
+  }
+  .logodesk a div {
+    width: 125px;
+    height: 70px;
   }
   .sticky {
     position: fixed;
@@ -216,7 +225,7 @@ a {
     position: static;
     margin-bottom: 60px;
     height: 90px;
-    justify-items: center;
+    justify-items: flex-end;
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
@@ -232,20 +241,20 @@ a {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    justify-self: center;
+    justify-self: flex-end;
     background-color: initial;
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
     -ms-flex-line-pack: center;
         align-content: center;
+    -ms-grid-column: 4;
+        grid-column-start: 4;
     margin-right: 110px;
   }
-  header .plusbtn img {
+  header .plusbtn div {
     width: 54px;
     height: 54px;
-    -ms-grid-column-align: center;
-        justify-self: center;
   }
   header div .logo {
     display: -webkit-box;
@@ -313,32 +322,6 @@ a {
   }
   header ul li :active {
     color: #9CAFC3;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  header {
-    background-color: #37383C;
-    color: white;
-  }
-  label span {
-    background-color: white;
-  }
-  label span::before {
-    background-color: inherit;
-  }
-  label span::after {
-    background-color: inherit;
-  }
-  ul {
-    position: absolute;
-    background-color: black;
-  }
-  ul li {
-    color: white;
-  }
-  header.light-theme {
-    background-color: white;
   }
 }
 
@@ -546,7 +529,7 @@ nav .navsphere input {
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
-  width: 260px;
+  width: 100%;
   height: 180px;
   margin-bottom: 82px;
   margin-top: 32px;
@@ -554,6 +537,16 @@ nav .navsphere input {
 
 .trendinggifos .gallery .arrows {
   display: none;
+}
+
+.trendinggifos .gallery #gifs {
+  width: 260px;
+  height: 100%;
+  overflow-x: scroll;
+}
+
+.trendinggifos .gallery #gifs img {
+  margin: 0rem 0.5rem;
 }
 
 @media (min-width: 540px) {
@@ -597,11 +590,17 @@ nav .navsphere input {
     margin-left: 94px;
     margin-bottom: 182px;
     margin-top: 53px;
+    overflow: hidden;
   }
   .trendinggifos .gallery #gifs {
     width: 1050px;
     height: 100%;
+    margin: 0px;
     overflow: hidden;
+  }
+  .trendinggifos .gallery #gifs img {
+    height: inherit;
+    margin: 0rem 14px;
   }
   .trendinggifos .gallery .arrows {
     font-style: none;
@@ -612,6 +611,8 @@ nav .navsphere input {
         -ms-grid-row-align: center;
         align-self: center;
     display: initial;
+    margin: 5px;
+    margin-top: 20px;
   }
 }
 
@@ -645,13 +646,8 @@ footer .sharing {
       align-self: center;
 }
 
-footer .sharing img {
+footer .sharing div {
   padding: 22px 19px;
-}
-
-footer .sharing #facebook :hover {
-  -webkit-filter: url(./imgs/svg/facebook/icon_facebook_hover.svg);
-          filter: url(./imgs/svg/facebook/icon_facebook_hover.svg);
 }
 
 footer .copyright {
@@ -687,7 +683,7 @@ footer .copyright {
   footer .sharing {
     margin: 0px;
   }
-  footer .sharing img {
+  footer .sharing div {
     padding: 20px;
   }
 }
@@ -733,14 +729,14 @@ footer .copyright {
   width: 28px;
 }
 
-#gifobuilder {
+#gifobuilder, #misFavor {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 300px 300px;
       grid-template-columns: 300px 300px;
 }
 
-#gifobuilder img {
+#gifobuilder img, #misFavor img {
   width: 260px;
   height: 200px;
 }
@@ -934,17 +930,19 @@ footer .copyright {
   border-bottom: #50E3C2 1px solid;
 }
 
-.btn {
+.container_btn {
   margin-top: 78px;
   margin-bottom: 76px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
-.btn button {
-  border: #572EE5 solid 1px;
-  padding: 13px 25px;
-  border-radius: 25px;
-  background: white;
-  font-family: "Montserrat", sans-serif;
+.btn--index {
+  display: none;
 }
 
 .emptyScreen {
@@ -994,6 +992,7 @@ footer .copyright {
       grid-row-start: 1;
   -ms-grid-column: 1;
       grid-column-start: 1;
+  z-index: 20;
 }
 
 #gifobuilder .btnholder {
@@ -1034,26 +1033,33 @@ footer .copyright {
 </body>
 </html>
 */
-* {
-  padding: 0;
-  margin: 0;
-  font-family: "Montserrat", sans-serif;
-  text-align: center;
-}
-
-.blueline {
-  width: 100%;
-  height: 5px;
-  background-color: #572EE5;
-}
-
 @media (prefers-color-scheme: dark) {
   body {
     background-color: #2f2f2f;
     color: white;
   }
+  body .btn--index, body .btn--favoritos, body .btn--misgifos {
+    background: url("../assets/viewmorebtn/ver-mas-noc.svg");
+    width: 127px;
+    height: 50px;
+  }
+  body .btn--index:hover, body .btn--favoritos:hover, body .btn--misgifos:hover {
+    background: url("../assets/viewmorebtn/ver-mas-hover-noc.svg");
+  }
   body header {
     background-color: inherit;
+  }
+  body header .logomobile > a div {
+    background: url("../assets/logo/logo-mobile-modo-noct.svg") no-repeat center;
+  }
+  body header .logodesk > a div {
+    background: url("../assets/logo/Logo-modo-noc.svg") no-repeat center;
+  }
+  body header .plusbtn div {
+    background: url("../assets/plusbtn/CTA-crear-gifo-modo-noc.svg") no-repeat center;
+  }
+  body header .plusbtn div:hover {
+    background: url("../assets/plusbtn/CTA-crear-gifo-hover-modo-noc.svg");
   }
   body header ul {
     background-color: black;
@@ -1084,6 +1090,27 @@ footer .copyright {
   body .navsphere input {
     color: white;
   }
+  body h2 {
+    color: white;
+  }
+  body .sharing #facebook {
+    background: url("../assets/facebook/icon_facebook_noc.svg") no-repeat center;
+  }
+  body .sharing #facebook:hover {
+    background: url("../assets/facebook/icon_facebook_hover.svg") no-repeat center;
+  }
+  body .sharing #twitter {
+    background: url("../assets/twitter/icon_twitter_noc.svg") no-repeat center;
+  }
+  body .sharing #twitter:hover {
+    background: url("../assets/twitter/icon_twitter-hover.svg") no-repeat center;
+  }
+  body .sharing #insta {
+    background: url("../assets/insta/icon_instagram_noc.svg") no-repeat center;
+  }
+  body .sharing #insta:hover {
+    background: url("../assets/insta/icon_instagram-hover.svg") no-repeat center;
+  }
   header input:checked ~ label span {
     background-color: transparent;
   }
@@ -1102,12 +1129,32 @@ footer .copyright {
   body.light-theme {
     background-color: white;
   }
+  body.light-theme .btn--index, body.light-theme .btn--favoritos, body.light-theme .btn--misgifos {
+    background-image: url("../assets/viewmorebtn/ver-mas.svg");
+    width: 127px;
+    height: 50px;
+  }
+  body.light-theme .btn--index .btn--index:hover, body.light-theme .btn--index .btn--favoritos:hover, body.light-theme .btn--index .btn--misgifos:hover, body.light-theme .btn--favoritos .btn--index:hover, body.light-theme .btn--favoritos .btn--favoritos:hover, body.light-theme .btn--favoritos .btn--misgifos:hover, body.light-theme .btn--misgifos .btn--index:hover, body.light-theme .btn--misgifos .btn--favoritos:hover, body.light-theme .btn--misgifos .btn--misgifos:hover {
+    background-image: url("../assets/viewmorebtn/ver-mas-hover.svg");
+  }
   body.light-theme header {
     background-color: inherit;
     color: white;
   }
+  body.light-theme header .logomobile a div {
+    background: url("../assets/logo/logo-mobile.svg") no-repeat center;
+  }
+  body.light-theme header .logodesk a div {
+    background: url("../assets/logo/logo-mobile.svg") no-repeat center;
+  }
   body.light-theme header ul {
     background-color: rgba(87, 46, 229, 0.9);
+  }
+  body.light-theme header .plusbtn div {
+    background: url("../assets/plusbtn/button-crear-gifo.svg") no-repeat center;
+  }
+  body.light-theme header .plusbtn div:hover {
+    background: url("../assets/plusbtn/CTA-crear-gifo-hover.svg");
   }
   body.light-theme header input:checked ~ label span {
     background-color: transparent;
@@ -1132,6 +1179,24 @@ footer .copyright {
   body.light-theme footer {
     color: initial;
   }
+  body.light-theme footer .sharing #facebook {
+    background: url("../assets/facebook/icon_facebook.svg") no-repeat center;
+  }
+  body.light-theme footer .sharing #facebook:hover {
+    background: url("../assets/facebook/icon_facebook_hover.svg") no-repeat center;
+  }
+  body.light-theme footer .sharing #twitter {
+    background: url("../assets/twitter/icon_twitter.svg") no-repeat center;
+  }
+  body.light-theme footer .sharing #twitter:hover {
+    background: url("../assets/twitter/icon_twitter-hover.svg") no-repeat center;
+  }
+  body.light-theme footer .sharing #insta {
+    background: url("../assets/insta/icon_instagram.svg") no-repeat center;
+  }
+  body.light-theme footer .sharing #insta:hover {
+    background: url("../assets/insta/icon_instagram-hover.svg") no-repeat center;
+  }
   body.light-theme .gifosimg {
     color: #572EE5;
   }
@@ -1139,11 +1204,107 @@ footer .copyright {
     color: #50E3C2;
     font-size: 23px;
   }
+  body.light-theme h2 {
+    color: #572EE5;
+  }
   body.light-theme p {
     color: black;
   }
   body.light-theme .navsphere input {
     color: black;
   }
+}
+
+/*
+.container_popmax {
+    display: grid;
+    width: 100%;
+    height: 100%;
+    grid-template-columns: repeat(12,1fr);
+    grid-template-rows: repeat(6,60px);
+    #popmax_cross {
+        width: 100%;
+        height: 100%;
+        justify-self: center;
+        align-self: center;
+        grid-column-start: 11;
+        grid-column-end: 12;
+    }
+    .container_gifmax {
+        background-color: red;
+        grid-column-start: 5;
+        grid-column-end: 9;
+        grid-row-start: 2;
+        grid-row-end: 6;
+    }
+    #left {
+        grid-column-start: 4;
+        grid-column-end: 5;
+        grid-row-start: 3;
+        grid-row-end: 5;
+        align-self: center;
+    }
+    #right {
+        grid-column-start: 9;
+        grid-column-end: 10;
+        grid-row-start: 3;
+        grid-row-end: 5;
+        align-self: center;
+    }
+    .popmax_footer {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr;
+        grid-column-start: 5;
+        grid-column-end: 9;
+        z-index: 2;
+        grid-row-start: 5;
+        grid-row-end: 6;
+        h3 {
+            grid-column-start: 1;
+            grid-row-start:1;
+        }
+        h4 {
+            grid-column-start: 1;
+            grid-row-start:1;
+            margin-top: 20px;
+        }
+        .popmax_btnholder {
+            justify-self: flex-end;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            grid-column-start: 3;
+            grid-row-start:1;
+            .popmax_fav {
+                padding: 10px;
+            }
+            .popmax_download {
+                padding: 10px;
+            }
+        }
+    }
+}
+*/
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
+  scroll-behavior: smooth;
+}
+
+.blueline {
+  width: 100%;
+  height: 5px;
+  background-color: #572EE5;
+}
+
+.hidden {
+  display: none !important;
+}
+
+a {
+  cursor: pointer;
 }
 /*# sourceMappingURL=stylesheet.css.map */

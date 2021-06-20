@@ -46,49 +46,16 @@ let structs = [];
 let trendingArr = []; //All images urls are added here.
 const displayAtOneTime = 3;
 index = displayAtOneTime;
-let displayed = []
-
-
-// needs called InitTrending()
-function InitTrending() {
-    displayed = trendingArr.slice(0, 3)
-}
-
-//On next
-function onNext() {
-    if (trendingArr.length > displayAtOneTime) {
-        displayed.reverse().pop();
-        displayed.push(trendingArr[index]);
-        index += 1;
-        if (index > trendingArr.length - 1) {
-            index = 0;
-        }
-    } else {
-        alert("Not enough images found")
-    }
-}
-
-function onPrevious() {
-    if (trendingArr.length > displayAtOneTime) {
-        displayed.reverse().pop();
-        displayed.push(trendingArr[index]);
-        index -= 1;
-        if (index < 0) {
-            index = trendingArr.length - 1;
-        }
-    } else {
-        alert("Not enough images found")
-    }
-}
-
+let displayed = [];
 
 function AddAllListeners() {
     structs.push(new Struct(facebook, "facebook/icon_facebook_hover.svg","facebook/icon_facebook.svg", "", "", ""))
     structs.push(new Struct(twitter, "twitter/icon_twitter-hover.svg","twitter/icon_twitter.svg", "", "", ""))
     structs.push(new Struct(insta, "insta/icon_instagram-hover.svg","insta/icon_instagram.svg", "", "", ""))
 }
-
 AddAllListeners();
+
+// ============================= DARK MODE ==============================
 
 const dark = document.getElementById('darkness');
 console.log(dark);
@@ -114,3 +81,32 @@ dark.addEventListener('click',() => {
     }
     localStorage.setItem('theme', colorTheme)
 })
+
+
+// ==================== RECORDING CODE COPIED ======================== //
+
+/*
+
+startButton.addEventListener("click", function() {
+    navigator.mediaDevices.getUserMedia({
+        video: true,
+        audio: true
+}).then(stream => {
+    preview.srcObject = stream;
+    downloadButton.href = stream;
+    preview.captureStream = preview.captureStream || preview.mozCaptureStream;
+    return new Promise(resolve => preview.onplaying = resolve);
+}).then(() => startRecording(preview.captureStream(), recordingTimeMS))
+.then (recordedChunks => {
+    let recordedBlob = new Blob(recordedChunks, { type: "video/webm" });
+    recording.src = URL.createObjectURL(recordedBlob);
+    downloadButton.href = recording.src;
+    downloadButton.download = "RecordedVideo.webm";
+
+    log("Successfully recorded " + recordedBlob.size + " bytes of " +
+        recordedBlob.type + " media.");
+})
+.catch(log);
+}, false);
+
+*/
