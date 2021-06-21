@@ -88,15 +88,13 @@
         .gallery{
             justify-self: flex-start;
             align-self: center;
-            width: 90%;
+            width: 100%;
             height: 275px;
-            margin-right: 94px;
-            margin-left: 94px;
             margin-bottom: 182px;
             margin-top: 53px;
             overflow: hidden;
             #gifs {
-                width: 1050px;
+                width: 80%;
                 height: 100%;
                 margin: 0px;
                 overflow: hidden;

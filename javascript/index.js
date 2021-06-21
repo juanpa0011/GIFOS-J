@@ -20,6 +20,24 @@ const localSt = localStorage.getItem('theme');
 const conteiner = document.getElementById('gifobuilder');
 const searchingAnim = document.getElementById('buscadoranimation');
 
+//Max-popup NEEDED CODE
+const popupCross = document.getElementById("popup__btn--cross");
+const popupImg = document.getElementById("popup__gif--max");
+const popupTitle = document.getElementById("gif_title");
+const popupUser = document.getElementById("gif_username");
+/* const popupBtnFav = document.getElementById("popup__btn--fav");
+const popupBtnDown = document.getElementById("popup__btn--down"); */
+const actions = document.querySelector('.actions')
+const popup__section = document.getElementById("popup__section");
+const popup__container = document.querySelector('maximizar__container');
+
+//
+const blue_bottom = document.getElementById('bottom_blue');
+const blue_top = document.getElementById('top_blue');
+const main = document.getElementById('main');
+const footer = document.getElementById('footer')
+// Header
+//
 
 // SVGs PATH () //
 const path = "../assets/"
@@ -50,14 +68,6 @@ dark.addEventListener('click',() => {
     localStorage.setItem('theme', colorTheme)
 })
 
-let pathFinders = [];
-
-
-let trendingArr = []; //All images urls are added here.
-const displayAtOneTime = 3;
-index = displayAtOneTime;
-let displayed = []
-
 
 // needs called InitTrending()
 function InitTrending() {
@@ -83,8 +93,6 @@ function stickyfunction() {
 
 
 // Searching Images
-
-  // ---- search gifos ----
 
 const cant = ()=>{
     deleteNode(conteiner);
@@ -114,15 +122,19 @@ const cant = ()=>{
         svgDownload.className = "iconholder"
     
         let img = document.createElement('img');
-
         img.id = info.data[i].id;
         img.src = info.data[i].images.original.url;
 
+        let cover = document.createElement('div');
+        cover.className = "cover";
+
         placeholder.appendChild(img);
         img.addEventListener('click', () => {
-            console.log("AAAH")
             popUp(info.data[i].id, info.data[i].images.original.url, info.data[i].username, info.data[i].title);
         })
+
+        placeholder.appendChild(cover);
+
         btnholder.appendChild(svgFav);
         svgFav.addEventListener('click',() => {
             addFavorites(info.data[i].id, info.data[i].images.original.url, info.data[i].username, info.data[i].title);
@@ -134,30 +146,10 @@ const cant = ()=>{
         btnholder.appendChild(svgDownload);
         placeholder.appendChild(btnholder);
         conteiner.appendChild(placeholder);
-        ConstructImgHolder.push = new ConstructImgHolder(img,btnholder,svgFav,svgMax,svgDownload);
+        ConstructImgHolder.push = new ConstructImgHolder(cover,btnholder,svgFav,svgMax,svgDownload);
     }
     searchAnimationEnd()
 }
-
-//
-
-const popupCross = document.getElementById("popup__btn--cross");
-const popupImg = document.getElementById("popup__gif--max");
-const popupTitle = document.getElementById("gif_title");
-const popupUser = document.getElementById("gif_username");
-/* const popupBtnFav = document.getElementById("popup__btn--fav");
-const popupBtnDown = document.getElementById("popup__btn--down"); */
-const actions = document.querySelector('.actions')
-const popup__section = document.getElementById("popup__section");
-const popup__container = document.querySelector('maximizar__container');
-
-//
-const blue_bottom = document.getElementById('bottom_blue');
-const blue_top = document.getElementById('top_blue');
-const main = document.getElementById('main');
-const footer = document.getElementById('footer')
-// Header
-//
 
 
 function popUp ( id, url, user, title) {
@@ -240,8 +232,10 @@ class ConstructImgHolder {
         this.HTMLimg.addEventListener("click",() => {
             if(this.HTMLBtnHolder.style.display == 'flex') {
                 this.HTMLBtnHolder.style.display = 'none';
+                this.HTMLimg.classList.remove('.cover--active')
             } else {
                 this.HTMLBtnHolder.style.display = 'flex';
+                this.HTMLimg.classList.add('.cover--active')
             }
         });
         this.HTMLFav.addEventListener("mouseover",() =>{
