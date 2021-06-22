@@ -1,123 +1,294 @@
-#creategifmain {
-    height: 570px;
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: repeat(8,1fr);
-    #controls {
-        grid-column-start: 2;
-        grid-column-end: 6;
-        grid-row-start: 8;
-        grid-row-end: 9;
-        display: flex;
-        flex-direction: column;
-        >div {
-            display: flex;
-            >img {
-                margin-bottom: 15px;
-                padding: 0rem 1rem;
-            }
-        }
-        >button {
-            background-color: transparent;
-            width: 32px;
-            height: 32px;
-            margin: 0rem 1rem;
-            border: 0;
-        }
-        .underline {
-            background-color:$lightpurplecolor;
-            width: 100%;
-            height: 7px;
-            margin: 0px;
-        }
-        #startcam {
-            align-self: center;
-            width: 127px;
-            height: 50px;
-            padding: 10px;
-            border-radius: 25px;
-            border: 1px solid $lightpurplecolor;
-            color: $lightpurplecolor;
-            margin-top: 21px;
-        }
+$colorPrimary: rgb(87, 46, 229);
+$colorPrimaryTransparency: rgba(87, 46, 229, 0.9);
+$colorWhite: #ffffff;
+$colorWhiteTransparency: rgba(255, 255, 255, 0.95);
+$colorGray: #d8d8d8;
+$colorDarkGray: #9cafc3;
+$colorAqua: #50e3c2;
+$colorTreding: #f3f5f8;
+$colorActionBG: rgba(87, 46, 229, 0.6);
+$colorDark: #37383c;
+$colorDarkTransparency: rgba(34, 35, 38, 0.95);
+$colorTredingDark: #222326;
+$desk: "min-width: 1366px";
+$tablet: "min-width: 768px";
+
+
+.creargif {
+    display: flex;
+    flex-direction: column;
+  position: relative;
+  height: 100vh;
+  margin-bottom: 120px;
+  .creargif__container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  .creargif__camara {
+    max-width: 25%;
+    position: relative;
+    width: 204px;
+    height: 166px;
+    .camara {
+      position: absolute;
+      bottom: 0px;
+      left: 10px;
     }
-    #container-build {
-        border: $lightpurplecolor 1px solid;
-        width: 688px;
-        height: 390px;
-        margin: 0px;
-        grid-column-start: 2;
-        grid-column-end: 6;
-        grid-row-start: 1;
-        grid-row-end: 5;
-        justify-self: center;
-        display: flex;
-        display: grid;
-        grid-template-columns: auto 1fr 1fr 1fr auto;
-        grid-template-rows: repeat(4, 1fr);
-        #centercam {
-            grid-row-start: 2;
-            grid-row-end: 4;
-            grid-column-start: 2;
-            grid-column-end: 5;
-            > div {
-                display: flex;
-                flex-direction: column;
-                >h1 {
-                    font-size: 25px;
-                    color: $lightpurplecolor;
-                    text-align: center;
-                    line-height: 35px;
-                    padding: 0px 4rem;
-                    >span {
-                        color: $lightgreencolor;
-                    }
-                }
-            }
-        }
-        #topleft {
-            grid-column-start: 1;
-            grid-column-end: 2;
-            place-self: flex-start;
-            width: 27px;
-            height: 25px;
-            margin: 25px;
-            border-left: $lightgreencolor 1px solid;
-            border-top: $lightgreencolor 1px solid;
-        }
-        #topright {
-            grid-column-start: 5;
-            grid-column-end: 6;
-            place-self: flex-start;
-            width: 27px;
-            height: 25px;
-            margin: 25px;
-            border-right: $lightgreencolor 1px solid;
-            border-top: $lightgreencolor 1px solid;
-        }
-        #bottomleft {
-            grid-column-start: 1;
-            grid-column-end: 2;
-            grid-row-start: 4;
-            grid-row-end: 5;
-            place-self: flex-end;
-            width: 27px;
-            height: 25px;
-            margin: 25px;
-            border-left: $lightgreencolor 1px solid;
-            border-bottom: $lightgreencolor 1px solid;
-        }
-        #bottomright {
-            grid-column-start: 5;
-            grid-column-end: 6;
-            grid-row-start: 4;
-            grid-row-end: 5;
-            place-self: flex-end;
-            width: 27px;
-            height: 25px;
-            margin: 25px;
-            border-right: $lightgreencolor 1px solid;
-            border-bottom: $lightgreencolor 1px solid;
-        }
+    .carrete-chico {
+      position: absolute;
+      bottom: 95px;
+      left: 0px;
     }
+    .carrete-grande {
+      position: absolute;
+      bottom: 95px;
+      left: 50px;
+    }
+    .luz {
+      position: absolute;
+      left: 130px;
+      bottom: 15px;
+    }
+  }
+  .on-record {
+    .carrete-chico {
+      animation: spin 2s linear infinite;
+    }
+    .carrete-grande {
+      animation: spin 2s linear infinite;
+    }
+    .luz {
+      animation: blink 2s linear infinite;
+    }
+  }
+  .creargif__celluloidFilm {
+    max-width: 25%;
+    height: 20rem;
+    padding-top: 18rem;
+    padding-left: 1.5rem;
+  }
+  .creargif__recordingZone {
+    padding: 2rem;
+    width: 50%;
+    height: 20rem;
+    border: 1px solid $lightpurplecolor;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    align-items: center;
+    position: relative;
+    .creargif__recordingzone__content {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      .blob {
+        color: white;
+        font-size: 0.8rem;
+        line-height: 25px;
+        text-align: center;
+        position: absolute;
+        bottom: 40px;
+        right: 50px;
+        background: rgb(255, 0, 0);
+        border-radius: 50%;
+        margin: 10px;
+        height: 25px;
+        width: 25px;
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 1);
+        transform: scale(1);
+        animation: pulse 2s infinite;
+      }
+    }
+  }
+  .dark {
+    border-color: $colorWhite;
+  }
+  .creargif__title {
+    color: $colorPrimary;
+    .aqua {
+      color: $colorAqua;
+    }
+  }
+  .creargif__text {
+    padding-top: 10px;
+    color: #000;
+  }
+  .dark {
+    color: $colorWhite;
+  }
+  .recording_video {
+    min-width: 80%;
+    min-height: 20rem;
+    max-width: 80%;
+    max-height: 20rem;
+    z-index: 3000;
+  }
+  .recorded_video {
+    width: 100%;
+    z-index: 3000;
+  }
+  .overlay {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: $colorPrimaryTransparency;
+    color: #fff;
+    z-index: 90;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    .overlay__status-icon {
+      width: 30px;
+      display: block;
+      margin: 1rem auto;
+    }
+    .spin {
+      animation: spin 1s linear infinite;
+    }
+    .overlay__status-container {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+  .pagination {
+    margin: 0 auto;
+    width: 75%;
+    width: fit-content;
+    justify-self: flex-end;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    text-align: center;
+    .step {
+      width: 2rem;
+      height: 2rem;
+      padding-top: 0.2em;
+      margin: 1.5rem 0.5rem 1.5rem 0.5rem;
+      border: 1px solid $colorPrimary;
+      border-radius: 50%;
+      font-size: 1.2em;
+      color: $colorPrimary;
+    }
+    .step-active {
+      background-color: $colorPrimary;
+      color: $colorWhite;
+      .dark {
+        border-color: $colorPrimary;
+      }
+    }
+    .dark {
+      border-color: $colorWhite;
+      color: $colorWhite;
+    }
+  }
+  .timer__repeatShot {
+    color: $colorPrimary;
+    text-decoration: none;
+    &:hover {
+      border-bottom: 2px solid $colorAqua;
+    }
+    &:active {
+      color: lightgray; /* li grey */
+      border-bottom: hidden;
+    }
+  }
+  .dark {
+    color: $colorWhite;
+  }
+  .timer {
+    width: 25%;
+    text-align: right;
+    position: absolute;
+    bottom: -2rem;
+    right: 0px;
+    .timer__text {
+      color: $colorPrimary;
+      font-size: 16px;
+      line-height: 22px;
+    }
+    .dark {
+      color: $colorWhite;
+    }
+  }
+  .overlay__buttons-container {
+    .overlay__buttons {
+      width: 6.8rem;
+      padding: 2%;
+      position: absolute;
+      display: flex;
+      justify-content: space-between;
+      top: 0;
+      right: 0;
+      .download,
+      .link {
+        width: 2rem;
+        height: 2rem;
+        cursor: pointer;
+      }
+      .download {
+        background: url("../images/icon-download.svg");
+        &:hover {
+          background: url("../images/icon-download-hover.svg");
+        }
+      }
+      .link {
+        background: url("../images/icon-link-normal.svg");
+        &:hover {
+          background: url("../images/icon-link-hover.svg");
+        }
+      }
+    }
+  }
+  .button__container {
+    display: flex;
+    justify-content: center;
+  }
+  .button {
+    cursor: pointer;
+  }
+  .corner {
+    width: 1.7rem;
+    height: 1.7rem;
+    position: absolute;
+  }
+  .top-left {
+    border-top: 1px solid $colorAqua;
+    border-left: 1px solid $colorAqua;
+    top: 1.25rem;
+    left: 1.25rem;
+  }
+  .top-right {
+    border-top: 1px solid $colorAqua;
+    border-right: 1px solid $colorAqua;
+    top: 1.25rem;
+    right: 1.25rem;
+  }
+  .bottom-right {
+    border-bottom: 1px solid $colorAqua;
+    border-right: 1px solid $colorAqua;
+    bottom: 1.25rem;
+    right: 1.25rem;
+  }
+  .bottom-left {
+    border-bottom: 1px solid $colorAqua;
+    border-left: 1px solid $colorAqua;
+    bottom: 1.25rem;
+    left: 1.25rem;
+  }
+  .border {
+    width: 58%;
+    margin: 0 auto;
+    border: 3px solid $colorPrimary;
+    border-radius: 3px;
+  }
+  .dark {
+    border-color: $colorWhite;
+  }
 }

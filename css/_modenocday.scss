@@ -1,5 +1,17 @@
 @media (prefers-color-scheme: dark) {
     body {
+        #right {
+            background: url("../assets/arrow/right/button-slider-right-md-noct.svg");
+            &:hover {
+                background: url("../assets/arrow/right/Button-Slider-right-hover.svg");
+            }
+        }
+        #left {
+            background: url("../assets/arrow/left/button-slider-left-md-noct.svg");
+            &:hover {
+                background: url("../assets/arrow/left/button-slider-left-hover.svg");
+            }
+        }
         .btn--index, .btn--favoritos, .btn--misgifos{
             background: url("../assets/viewmorebtn/ver-mas-noc.svg");
             width: 127px;
@@ -8,6 +20,21 @@
                 background: url("../assets/viewmorebtn/ver-mas-hover-noc.svg");
             }
         }
+        #gifobuilder, #misFavor{
+            >.placeholder {
+                box-shadow: rgba(255, 255, 255, 0.877) 2px 3px 5px;
+            }
+        }
+
+        #stepone {
+            background: url("../assets/paso-a-paso/paso-a-paso-mod-noc.svg") no-repeat center;
+        }
+        #steptwo {
+            background: url("../assets/paso-a-paso/paso-a-paso-mod-noc2.svg") no-repeat center;
+        }
+                    #stepthree {
+                        background: url("../assets/paso-a-paso/paso-a-paso-mod-noc3.svg") no-repeat center;
+                    }
         background-color: rgb(47, 47, 47);
         color: white;
         header {
@@ -118,6 +145,33 @@
                 background-image: url("../assets/viewmorebtn/ver-mas-hover.svg");
             }
         }
+        #right {
+            background: url("../assets/arrow/right/Button-Slider-right.svg");
+            &:hover {
+                background: url("../assets/arrow/right/Button-Slider-right-hover.svg");
+            }
+        }
+        #left {
+            background: url("../assets/arrow/left/button-slider-left.svg");
+            &:hover {
+                background: url("../assets/arrow/left/button-slider-left-hover.svg");
+            }
+        }
+        #gifobuilder, #misFavor{
+            >.placeholder {
+                box-shadow: rgba(0, 0, 0, 0.25) 2px 3px 5px;
+            }
+        }
+        #stepone {
+                        background: url("../assets/paso-a-paso/paso-a-paso.svg") no-repeat center;
+        }
+        #steptwo {
+                        background: url("../assets/paso-a-paso/paso-a-paso2.svg") no-repeat center;                    
+        }
+        #stepthree {
+                        background: url("../assets/paso-a-paso/paso-a-paso3.svg") no-repeat center;
+            }
+                
         header {
             background-color: inherit;
             color: white;

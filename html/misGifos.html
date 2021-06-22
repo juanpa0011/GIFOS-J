@@ -10,7 +10,7 @@
     <title>GIFOS-J-misGifos</title>
 </head>
 <body>
-    <div class="blueline"></div>
+    <div class="blueline" id="top_blue"></div>
     <header id="sticky">
         <input id="checkbox" type="checkbox">
         <label for="checkbox"><span></span></label>
@@ -29,10 +29,10 @@
             <div class="greyline"></div>
         </ul>
         <div class="plusbtn">
-            <a href="./creargifo.html"><img id="creategift" src="../assets/plusbtn/button-crear-gifo.svg" alt="crearGift"> </a>
+            <a href="./creargifo.html"><div></div> </a>
         </div>
     </header>
-    <main>
+    <main id="main">
         <div class="gifosimg">
             <img src="../assets/misgifos/icon-mis-gifos.svg" alt="">
             <h1>Mis GIFOS</h1>
@@ -44,7 +44,7 @@
         <div class="gifobuilder misgifos">
         </div>
         <div class="container_btn"> 
-            <div class="btn--misgifos">
+            <div class="btn--misgifos hidden">
             </div>
         </div>
 
@@ -67,7 +67,7 @@
     </div>
     </main>
 
-    <footer>
+    <footer id="footer">
         <p>Compartir en:</p>
         <div class="sharing">
             <a href="https://www.facebook.com/"><div id="facebook"></div></a>
@@ -75,8 +75,8 @@
             <a href="https://www.instagram.com/?hl=es-la"><div id="insta"></div></a>
         </div>
         <div class="copyright">© GIFOS 2021 All Rights Reserved.</div>
-        <script src="../javascript/index.js"></script>
     </footer>
-    <div class="blueline"></div>
+    <div class="blueline" id="bottom_blue"></div>
+    <script src="../javascript/index.js"></script>
 </body>
 </html>

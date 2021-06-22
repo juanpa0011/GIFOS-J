@@ -10,7 +10,7 @@
     <title>GIFOS-J-favoritos</title>
 </head>
 <body>
-    <div class="blueline"></div>
+    <div class="blueline" id="top_blue"></div>
     <header id="sticky">
         <input id="checkbox" type="checkbox">
         <label for="checkbox"><span></span></label>
@@ -29,11 +29,11 @@
             <div class="greyline"></div>
         </ul>
         <div class="plusbtn">
-            <a href="./creargifo.html"><img id="creategift" src="../assets/plusbtn/button-crear-gifo.svg" alt="crearGift"> </a>
+            <a href="./creargifo.html"><div></div> </a>
         </div>
     </header>
-    <main>
-        <div class="gifosimg">
+    <main id="main">
+        <div class="gifosimg favoritos__title">
             <img src="../assets/favoritos/icon-favoritos.svg" alt="">
             <h1>Favoritos</h1>
         </div>
@@ -45,7 +45,7 @@
         <div class="misgifos" id="misFavor">
         </div>
         <div class="container_btn"> 
-            <div class="btn--favoritos">
+            <div class="btn--favoritos hidden">
             </div>
         </div>
         
@@ -66,9 +66,27 @@
             </div>
         </div>
     </div>
+    <section class="maximizar hidden" id="popup__section">
+        <div class="maximizar__container">
+        <div class="maximizar__container-close" id="popup__btn--cross"></div>
+        <div class="maximizar__container-image">
+            <img src="../assets/images/Nyan Cat GIF.gif" alt="Nyan Cat" id="popup__gif--max">
+        </div>
+        <div class="maximizar__container-data">
+            <div class="text">
+            <h1 id="gif_title">Nazgul</h1>
+            <h2 id="gif_username">Nyan cat (original)</h2>
+            </div>
+            <div class="actions">
+<!--             <div class="favorites" id="popup__btn--fav"></div>
+            <div class="download" id="popup__btn--down"></div> -->
+            </div>
+        </div>
+        </div>
+    </section>
     </main>
 
-    <footer>
+    <footer id="footer">
         <p>Compartir en:</p>
         <div class="sharing">
             <a href="https://www.facebook.com/"><div id="facebook"></div></a>
@@ -76,9 +94,9 @@
             <a href="https://www.instagram.com/?hl=es-la"><div id="insta"></div></a>
         </div>
         <div class="copyright">© GIFOS 2021 All Rights Reserved.</div>
-        <script src="../javascript/index.js" ></script>
-        <script src="../javascript/favoritos.js"></script>
     </footer>
-    <div class="blueline"></div>
+    <div class="blueline" id="bottom_blue"></div>
+    <script src="../javascript/index.js" ></script>
+    <script src="../javascript/favoritos.js"></script>
 </body>
 </html>

@@ -1,0 +1,16 @@
+<svg width="102" height="74" xmlns="http://www.w3.org/2000/svg">
+
+ <g>
+  <title>Layer 1</title>
+  <g stroke="null" id="svg_19">
+   <g stroke="null" id="svg_18">
+    <ellipse stroke="#000" ry="32.72977" rx="32.72977" id="svg_12" cy="40.78039" cx="32.72977" stroke-width="0" fill="#50e3c2"/>
+    <ellipse stroke="#50e3c2" ry="29.69334" rx="29.69334" id="svg_13" cy="40.77424" cx="32.63284" stroke-width="0" fill="#ffffff"/>
+    <rect stroke="#000000" id="svg_14" height="45.68206" width="65.17307" y="0" x="36.88622" stroke-width="0" fill="#ffffff"/>
+    <rect stroke="#000000" id="svg_15" height="10.21616" width="39.12041" y="36.91099" x="41.13588" stroke-width="0" fill="none"/>
+    <rect stroke="#ffffff" id="svg_16" height="2.27105" width="32.99506" y="45.19769" x="31.81667" stroke-width="0" fill="#50e3c2"/>
+   </g>
+   <text stroke="#000" transform="matrix(0.832082 0 0 0.832082 -121.88 -122.916)" font-style="normal" font-weight="normal" xml:space="preserve" text-anchor="start" font-family="'Montserrat'" font-size="24" id="svg_6" y="201.00123" x="177.6834" stroke-width="0" fill="#572ee5">IFOS</text>
+  </g>
+ </g>
+</svg>

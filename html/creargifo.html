@@ -34,44 +34,68 @@
             <img id="creategift" src="../assets/plusbtn/CTA-crear-gifo-active.svg" alt="crearGift">
         </div>
     </header>
-    <main id="creategifmain">
-        <div id="camera">
-            
+<main>
+<div class="creargif" id="crear">
+    <div class="creargif__container">
+      <div class="creargif__camara">
+        <img class="camara" src="../assets/camera/camara-diurno.svg" alt="Cámara">
+        <img class="carrete-chico" src="../assets/carrete/carretechico-diurno.svg" alt="Carrete chico de película">
+        <img class="carrete-grande" src="../assets/carrete/carretegrande-diurno.svg" alt="Carrete grande de película">
+      </div>
+      <div class="creargif__recordingZone">
+        <div class="overlay hidden" id="overlay">
+          <div class="overlay__buttons-container"></div>
+          <div class="overlay__status-container" id="overlay-status-container">
+            <img src="../assets/loadingcheck/loader.svg" class="overlay__status-icon" alt="loading gifo"
+              id="overlay_status-icon">
+            <p class="overlay__status-text" id="overlay_status-text">Estamos subiendo tu GIFO</p>
+          </div>
         </div>
-        <div id="container-build">
-            <div  id="topleft"></div>
-            <div  id="topright"></div>
-            <div id="centercam">
-                <div id="camplaceholder">
-                    <h1>Aquí podrás crear tus propios <span>GIFOS</span></h1>
-                    <p>¡Crea tu GIFO en sólo 3 pasos!</p>
-                    <p>(sólo necesitas una cámara para grabar un video)</p>
-                </div>
-            </div>
-            <div  id="bottomleft"></div>
-            <div  id="bottomright"></div>
+        <div class="corner top-left"></div>
+        <div class="corner top-right"></div>
+        <div class="corner bottom-left"></div>
+        <div class="corner bottom-right"></div>
+        <div class="creargif__recordingzone__content">
+          <h2 class="creargif__title" id="crearGif_title">Aquí podrás <br> crear tus propios <span
+              class="aqua">GIFOS</span> </h2>
+          <p class="creargif__text" id="crearGif_text">¡Crea tu GIFO en solo 3 pasos! <br> (solo necesitas
+            una cámara para grabar un video)</p>
+            <video class="recording_video hidden" src="../assets/tv.mp4" id="recording_video"></video>
+          <img class="recorded_video hidden" src="../assets/loadingcheck/ok.svg" id="recorded_gifo"
+            alt="Gif creado por el usuario">
+          <div class="blob hidden">rec</div>
         </div>
-        <div id="camera-loader">
-
+        <div class="timer">
+          <p class="timer__recorder timer__text hidden" id="timer-recording">00:00:00</p>
+          <a href="#" class="timer__repeatShot timer__text hidden" id="repeatShot">REPETIR CAPTURA</a>
         </div>
-        <div id="controls">
-            <div class="numberpad">
-                    <img id="stepone" src="../assets/paso-a-paso/paso-a-paso.svg" alt="paso1">
-                    <img id="steptwo" src="../assets/paso-a-paso/paso-a-paso2.svg" alt="paso2">
-                    <img id="stepthree" src="../assets/paso-a-paso/paso-a-paso3.svg" alt="paso3">
-            </div>
-            <div class="underline"></div>
-                <button id="startcam">COMENZAR</button>
-        </div>
-    </main>
+      </div>
+      <div class="creargif__celluloidFilm">
+        <img class="celuloide" id="celuloide" src="../assets/pelicula/pelicula.svg" alt="celuloide ilustracion">
+      </div>
+    </div>
+    <div class="pagination">
+      <p class="step" id="step-1">1</p>
+      <p class="step" id="step-2">2</p>
+      <p class="step" id="step-3">3</p>
+    </div>
+    <hr class="border">
+    <div class="button__container">
+      <a class="button" id="button-comenzar">COMENZAR</a>
+      <a class="button hidden" id="button-grabar">GRABAR</a>
+      <a class="button hidden" id="button-finalizar">FINALIZAR</a>
+      <a class="button hidden" id="button-subirGif">SUBIR</a>
+    </div>
+</div>
     <footer>
         <p>Compartir en:</p>
         <div class="sharing">
-            <img src="../assets/facebook/icon_facebook.svg" alt="" id="facebook">
-            <img src="../assets/twitter/icon_twitter.svg" alt="" id="twitter">
-            <img src="../assets/insta/icon_instagram.svg" alt="" id="insta">
+            <a href="https://www.facebook.com/"><div id="facebook"></div></a>
+            <a href="https://twitter.com/?lang=es"><div id="twitter"></div></a>
+            <a href="https://www.instagram.com/?hl=es-la"><div id="insta"></div></a>
         </div>
         <div class="copyright">© GIFOS 2021 All Rights Reserved.</div>
+    </main> 
     </footer>
     <div class="blueline"></div>
     <script src="../javascript/creargifo.js"></script>

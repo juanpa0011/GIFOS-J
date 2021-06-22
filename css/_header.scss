@@ -73,7 +73,7 @@ header {
         flex-flow: column;
         margin-top: 90px;
         width: 100%;
-        height: 100%;
+        height: 100vh;
         max-height: 0%;
         transition: height 0.2s ease-in-out;
         padding-top: 20px;
@@ -199,9 +199,14 @@ a {
             align-content: center;
             grid-column-start: 4;
             margin-right: 110px;
-            div {
+            width: 54px;
+            height: 54px;
+            > a {
+                cursor: pointer;
+                >div {
                 width: 54px;
                 height: 54px;
+                }
             }
         }
         div {

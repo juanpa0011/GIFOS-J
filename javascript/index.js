@@ -100,7 +100,6 @@ const cant = ()=>{
     A.innerHTML = search.value;
     
     if(info.data.lenght == 0) {
-        console.log("Here")
         return
     }
     for(let i = 0 ; i< cantidad ; i++){
@@ -294,7 +293,7 @@ async function trendingCrafter() {
 const containerTrend = document.getElementById('gifs');
 const trendingDownload = ()=>{
     for(let i = 0 ; i< trendLimit ; i++){
-        arrayImg[i] = info.data[i].images.original.url
+        arrayImg[i] = info.data[i].images.original.url;
     }
     showTrendArray();
 }
@@ -302,9 +301,8 @@ const trendingDownload = ()=>{
 function showTrendArray () {
     for (let i = 0; i < 8; i++) {
         let img = document.createElement('img');
-        img.src = arrayImg[arrayIndex];
+        img.src = arrayImg[i];
         containerTrend.appendChild(img);
-        arrayIndex++;
     }
 }
 
@@ -324,8 +322,10 @@ arrleft.addEventListener('click', () => {
 
 
 function deleteNode (node) {
-    while(node.lastChild) {
-        node.lastChild.remove();
+    if(node) {
+        while(node.lastChild) {
+            node.lastChild.remove();
+        }
     }
 }
 
