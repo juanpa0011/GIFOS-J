@@ -1,5 +1,8 @@
 @media (prefers-color-scheme: dark) {
     body {
+        #searchResult {
+            color: white;
+        }
         #right {
             background: url("../assets/arrow/right/button-slider-right-md-noct.svg");
             &:hover {
@@ -136,7 +139,11 @@
 
 
     body.light-theme {
+        
         background-color: white;
+        #searchResult {
+            color: $lightpurplecolor;
+        }
         .btn--index, .btn--favoritos, .btn--misgifos{
             background-image: url("../assets/viewmorebtn/ver-mas.svg");
             width: 127px;

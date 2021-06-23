@@ -596,13 +596,13 @@ nav .navsphere input {
     overflow: hidden;
   }
   .trendinggifos .gallery #gifs {
-    width: 90%;
+    width: 80%;
     height: 100%;
-    padding-left: 60%;
     margin: 0px;
     overflow: hidden;
   }
   .trendinggifos .gallery #gifs img {
+    padding-left: 20px;
     height: inherit;
     margin: 0rem 14px;
   }
@@ -1171,6 +1171,7 @@ footer .copyright {
 
 #gifobuilder > .placeholder .cover, #misFavor > .placeholder .cover {
   display: none;
+  visibility: hidden;
 }
 
 #gifobuilder > .placeholder img, #misFavor > .placeholder img {
@@ -1181,6 +1182,23 @@ footer .copyright {
 
 #gifobuilder > .placeholder .btnholder, #misFavor > .placeholder .btnholder {
   display: none;
+}
+
+.empty-search {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 15%;
+}
+
+.empty-search img {
+  width: 50%;
+  margin-left: 25%;
+  margin-bottom: 30px;
 }
 
 @media (min-width: 840px) {
@@ -1257,6 +1275,9 @@ footer .copyright {
 @media (prefers-color-scheme: dark) {
   body {
     background-color: #2f2f2f;
+    color: white;
+  }
+  body #searchResult {
     color: white;
   }
   body #right {
@@ -1374,6 +1395,9 @@ footer .copyright {
   }
   body.light-theme {
     background-color: white;
+  }
+  body.light-theme #searchResult {
+    color: #572EE5;
   }
   body.light-theme .btn--index, body.light-theme .btn--favoritos, body.light-theme .btn--misgifos {
     background-image: url("../assets/viewmorebtn/ver-mas.svg");
@@ -1589,6 +1613,17 @@ footer .copyright {
 
 .maximizar__container-data .actions .download {
   background: url("../assets/images/icon-download.svg") center no-repeat;
+}
+
+#mis_gifos {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
+  -ms-grid-rows: auto 1fr;
+      grid-template-rows: auto 1fr;
+  justify-items: center;
+  margin-bottom: 25px;
 }
 
 * {

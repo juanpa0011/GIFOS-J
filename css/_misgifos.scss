@@ -1,0 +1,7 @@
+#mis_gifos {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr ;
+    justify-items: center;
+    margin-bottom: 25px;
+}

@@ -5,6 +5,8 @@ const btnPlus = document.getElementById('creategift');
 const showmore = document.getElementById('showmore');
 const search = document.getElementById('buscador');
 
+const emptySearch = document.querySelector('.empty-search');
+
 //Mis Favor
 const misFavor = document.getElementById('misFavor');
 
@@ -195,6 +197,7 @@ function deleteElement (element) {
 }
 
 function searchAnimation () {
+    emptySearch.classList.add('hidden');
     searchingAnim.src = path + "loadingcheck/loader.svg";
 }
 
@@ -207,14 +210,21 @@ let info;
 async function newSearch(gifo) {
     const apiKey = 'T96v34LvfncPq5iV6LjP4GsHYqeQEupg';
     const url = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${gifo}&limit=${cantidad}`;
-
     try {
         const response = await fetch(url);
         info = await response.json();
         cant();
     } catch (err) {
         console.log(err);
+        nothingFound();
     }
+}
+
+function nothingFound () {
+    let A = document.getElementById('searchResult');
+    A.innerHTML = "Lorem Ipsum"
+    searchingAnim.src = path + "loadingcheck/failed.svg";
+    emptySearch.classList.remove('hidden');
 }
 
 class ConstructImgHolder {

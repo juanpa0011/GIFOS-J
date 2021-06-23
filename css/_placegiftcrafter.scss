@@ -17,6 +17,7 @@
         justify-items: center;
         .cover {
             display: none;
+            visibility: hidden;
         }
         img {
             width: 100%;
@@ -29,6 +30,17 @@
     }
 }
 
+.empty-search {
+    display: flex;
+    flex-direction: column;
+    padding: 15%;
+
+    img {
+        width: 50%;
+        margin-left: 25%;
+        margin-bottom: 30px;
+    }
+}
 
 
 @media (min-width: 840px) {
