@@ -58,16 +58,30 @@
         justify-content: flex-end;
         margin-top: 0.5rem;
         .favorites,
-        .download {
-          width: 20px;
-          height: 20px;
+        .download,
+        .trash {
+          width: 50%;
         }
         .favorites {
           background: url("../assets/images/icon-fav.svg") center no-repeat;
           margin: 0 0.25rem;
+          &:hover {
+            background: url("../assets/favoritos/icon-fav-hover.svg") center no-repeat;
+          }
+        }
+        .trash {
+          background: url("../assets/trash/icon-trash-normal.svg") center no-repeat;
+          margin: 0 0.25rem;
+          &:hover {
+            background: url("../assets/trash/icon-trash-hover.svg") center no-repeat;
+          }
         }
         .download {
+          margin: 0 0.25rem;
           background: url("../assets/images/icon-download.svg") center no-repeat;
+          &:hover {
+            background: url("../assets/download/icon-download-hover.svg") center no-repeat;
+          }
         }
       }
     }

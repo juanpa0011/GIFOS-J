@@ -47,25 +47,37 @@
         <div class="container_btn"> 
             <div class="btn--favoritos hidden">
             </div>
+            <div class="btn--index hidden">
+
+            </div>
+            <div class="btn--misgifos hidden">
+
+            </div>
         </div>
+        <nav id="nav" class="hidden">
+            <img src="../assets/ilustra_header.svg" alt="backgroundImg">
+            <div class="navsphere">
+                <input type="text" placeholder="Busca GIFOS y más" id="buscador">
+                <img src="../assets/searching/icon-search.svg" alt="searchIcon" id="buscadoranimation">
+            </div>
+        </nav>
         
-    <div class="trendinggifos" id="trendingsticky">
-        <div class="galleryfoot">
-            <h3>Trending GIFOS</h3>
-            <p>Mira los últimos GIFOS de nuestra comunidad.</p>
-        </div>
-        <div class="gallery">
-            <div class="arrows" >
-                <img src="../assets/arrow/left/button-slider-left.svg" alt="arrowleft" id="left">
+        <div class="trendinggifos">
+            <div class="galleryfoot">
+                <h3>Trending GIFOS</h3>
+                <p>Mira los últimos GIFOS de nuestra comunidad.</p>
             </div>
-                <div id="gifs">
-                    
+            <div class="gallery">
+                <div class="arrows" id="left" >
                 </div>
-            <div class="arrows">
-                <img src="../assets/arrow/right/button-slider-right.svg" alt="arrowright" id="right">
+                    <div id="gifs">
+                        
+                    </div>
+                <div class="arrows" id="right">
+                </div>
             </div>
         </div>
-    </div>
+    </main>
     <section class="maximizar hidden" id="popup__section">
         <div class="maximizar__container">
         <div class="maximizar__container-close" id="popup__btn--cross"></div>
@@ -84,7 +96,6 @@
         </div>
         </div>
     </section>
-    </main>
 
     <footer id="footer">
         <p>Compartir en:</p>

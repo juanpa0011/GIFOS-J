@@ -1,4 +1,6 @@
 const path = "../assets/"
+const endpointUpload = 'https://upload.giphy.com/v1/gifs?api_key=';
+const apiKey = 'T96v34LvfncPq5iV6LjP4GsHYqeQEupg';
 
 // ============================= DARK MODE ==============================
 
@@ -181,10 +183,6 @@ const stopCreatingGif = () => {
 
 let myGifoId;
 const uploadCreatedGif = async () => {
-  girCreateOverlayStatusIcon.classList.add('spin')
-  girCreateOverlayStatusIcon.src = './assets/images/loader.svg';
-  girCreateOverlayStatusText.textContent = 'Estamos subiendo tu GIFO';
-  overlay.classList.remove('hidden');
   repeatShot.classList.add('hidden');
   btnCreateGifoUpload.classList.add('hidden');
   /* console.log(form.get('file')); */
@@ -194,29 +192,9 @@ const uploadCreatedGif = async () => {
   })
     .then((response) => response.json())
     .then((myGif) => {
+
       myGifoId = myGif.data.id;
-      let buttonsMyGif = document.createElement('div');
-      buttonsMyGif.classList.add('overlay__buttons');
-      let buttonDownload = document.createElement('div');
-      buttonDownload.setAttribute('class', 'download');
-      let buttonLink = document.createElement('div');
-      buttonLink.setAttribute('class', 'link');
-      buttonsMyGif.appendChild(buttonDownload);
-      buttonDownload.addEventListener('click', () => download(myGifoId, 'tuGifo'));
-      buttonsMyGif.appendChild(buttonLink);
-      buttonLink.addEventListener('click', (e) => {
-        let aux = document.createElement("input");
-        aux.value = `https://media.giphy.com/media/${myGifoId}/giphy.gif`;
-        document.body.appendChild(aux);
-        aux.select();
-        document.execCommand("copy");
-        document.body.removeChild(aux);
-        alert("Link del Gif Copiado al Portapapeles");
-      });
-      overlay__buttonscontainer.appendChild(buttonsMyGif);
-      girCreateOverlayStatusIcon.classList.remove('spin')
-      girCreateOverlayStatusIcon.src = './assets/images/check.svg';
-      girCreateOverlayStatusText.textContent = 'GIFO subido con éxito';
+
       const object = {
         id: myGifoId,
         url: `https://media.giphy.com/media/${myGifoId}/giphy.gif`,
@@ -232,6 +210,7 @@ const uploadCreatedGif = async () => {
         arrayMyGifos.push(object);
         localStorage.setItem('mygifos', JSON.stringify(arrayMyGifos));
       }
+      console.log(arrayMyGifos);
     })
     .catch((error) => {
       console.error(error);

@@ -37,36 +37,65 @@
             <img src="../assets/misgifos/icon-mis-gifos.svg" alt="">
             <h1>Mis GIFOS</h1>
         </div>
-        <div class="emptyScreen">
+        <div class="emptyScreen" id="misGifos-empty">
             <img src="../assets/misgifos/icon-mis-gifos-sin-contenido.svg" alt="sin-contenido">
             <h3>¡Anímate a crear tu primer GIFO!</h3>
         </div>
-        <div class="gifobuilder misgifos">
+        <div class="gifobuilder misgifos" id="edifMisGifs">
         </div>
         <div class="container_btn"> 
             <div class="btn--misgifos hidden">
             </div>
         </div>
-
-    <div class="trendinggifos">
-        <div class="galleryfoot">
-            <h3>Trending GIFOS</h3>
-            <p>Mira los últimos GIFOS de nuestra comunidad.</p>
-        </div>
-        <div class="gallery">
-            <div class="arrows" >
-                <img src="../assets/arrow/left/button-slider-left.svg" alt="arrowleft" id="left">
+        <nav id="nav" class="hidden">
+            <img src="../assets/ilustra_header.svg" alt="backgroundImg">
+            <div class="navsphere">
+                <input type="text" placeholder="Busca GIFOS y más" id="buscador">
+                <img src="../assets/searching/icon-search.svg" alt="searchIcon" id="buscadoranimation">
             </div>
-                <div id="gifs">
-                    
+        </nav>
+        <div class="container_btn"> 
+            <div class="btn--favoritos hidden">
+            </div>
+            <div class="btn--index hidden">
+
+            </div>
+            <div class="btn--misgifos hidden">
+
+            </div>
+        </div>
+        <div class="trendinggifos">
+            <div class="galleryfoot">
+                <h3>Trending GIFOS</h3>
+                <p>Mira los últimos GIFOS de nuestra comunidad.</p>
+            </div>
+            <div class="gallery">
+                <div class="arrows" id="left" >
                 </div>
-            <div class="arrows">
-                <img src="../assets/arrow/right/button-slider-right.svg" alt="arrowright" id="right">
+                    <div id="gifs">
+                        
+                    </div>
+                <div class="arrows" id="right">
+                </div>
             </div>
         </div>
-    </div>
     </main>
-
+    <section class="maximizar hidden" id="popup__section">
+        <div class="maximizar__container">
+        <div class="maximizar__container-close" id="popup__btn--cross"></div>
+        <div class="maximizar__container-image">
+            <img src="../assets/images/Nyan Cat GIF.gif" alt="Nyan Cat" id="popup__gif--max">
+        </div>
+        <div class="maximizar__container-data">
+            <div class="text">
+            <h1 id="gif_title">Nazgul</h1>
+            <h2 id="gif_username">Nyan cat (original)</h2>
+            </div>
+            <div class="actions">
+            </div>
+        </div>
+        </div>
+    </section>
     <footer id="footer">
         <p>Compartir en:</p>
         <div class="sharing">
@@ -78,5 +107,6 @@
     </footer>
     <div class="blueline" id="bottom_blue"></div>
     <script src="../javascript/index.js"></script>
+    <script src="../javascript/misgifos.js"></script>
 </body>
 </html>

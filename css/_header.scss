@@ -5,7 +5,7 @@ header {
     display: grid;
     grid-template-rows: auto;
     grid-template-columns: 1fr 1fr;
-    z-index: 10;
+    z-index: 90;
     margin-bottom: 10px;
     #checkbox {
         visibility: hidden;

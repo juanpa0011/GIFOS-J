@@ -8,7 +8,7 @@ header {
       grid-template-rows: auto;
   -ms-grid-columns: 1fr 1fr;
       grid-template-columns: 1fr 1fr;
-  z-index: 10;
+  z-index: 90;
   margin-bottom: 10px;
 }
 
@@ -401,7 +401,7 @@ nav .navsphere {
       grid-template-rows: 1fr;
   margin: 0;
   height: 50px;
-  width: 335px;
+  width: 90%;
   border: 2px solid #572EE5;
   border-radius: 2rem;
 }
@@ -444,6 +444,8 @@ nav .navsphere input {
     height: 20px;
   }
   nav .navsphere input {
+    padding-left: 20px;
+    background: transparent;
     border: 0px;
     width: 350px;
     height: 90%;
@@ -534,7 +536,7 @@ nav .navsphere input {
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
-  width: 100%;
+  width: 90%;
   height: 180px;
   margin-bottom: 82px;
   margin-top: 32px;
@@ -545,16 +547,94 @@ nav .navsphere input {
 }
 
 .trendinggifos .gallery #gifs {
-  width: auto;
-  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: auto;
   overflow-x: scroll;
 }
 
-.trendinggifos .gallery #gifs img {
-  margin: 0rem 0.5rem;
+.trendholder {
+  height: 165px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 275px;
+      grid-template-columns: 275px;
+  -ms-grid-rows: auto;
+      grid-template-rows: auto;
+  margin: 0px 20px;
 }
 
-@media (min-width: 540px) {
+.trendholder img {
+  -ms-grid-column: 1;
+      grid-column-start: 1;
+  -ms-grid-row: 1;
+      grid-row-start: 1;
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+  height: inherit;
+}
+
+@media (min-width: 940px) {
+  .trendholder {
+    width: 100%;
+    height: 275px;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 275px;
+        grid-template-columns: 275px;
+    -ms-grid-rows: auto;
+        grid-template-rows: auto;
+    margin: 0px 10px;
+  }
+  .trendholder > .btnholder {
+    -ms-grid-column: 1;
+        grid-column-start: 1;
+    -ms-grid-row: 1;
+        grid-row-start: 1;
+    z-index: 5;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    background: rgba(87, 46, 229, 0.7);
+    margin: 0px;
+    padding-top: 10px;
+    padding-right: 10px;
+  }
+  .trendholder > .btnholder .iconholder {
+    width: 15%;
+    -ms-flex-item-align: start;
+        align-self: flex-start;
+    justify-self: flex-end;
+    margin: 0px 5px;
+  }
+  .trendholder > .btnholder .iconholder img {
+    width: 45px;
+  }
+  .trendholder > .btnholder h4 {
+    justify-self: flex-end;
+    -ms-flex-item-align: end;
+        align-self: flex-end;
+    color: white;
+    padding-bottom: 20px;
+    padding-left: 10px;
+    font-size: 14px;
+  }
+  .trendholder img {
+    -ms-grid-column: 1;
+        grid-column-start: 1;
+    -ms-grid-row: 1;
+        grid-row-start: 1;
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    height: inherit;
+  }
   .trending div {
     margin-top: 70px;
     margin-bottom: 95px;
@@ -596,15 +676,14 @@ nav .navsphere input {
     overflow: hidden;
   }
   .trendinggifos .gallery #gifs {
-    width: 80%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 70%;
     height: 100%;
     margin: 0px;
     overflow: hidden;
-  }
-  .trendinggifos .gallery #gifs img {
-    padding-left: 20px;
-    height: inherit;
-    margin: 0rem 14px;
+    padding-left: 20rem;
   }
   .trendinggifos .gallery .arrows {
     font-style: none;
@@ -854,8 +933,8 @@ footer .copyright {
 .creargif .recording_video {
   min-width: 80%;
   min-height: 20rem;
-  max-width: 80%;
-  max-height: 20rem;
+  max-width: 100%;
+  max-height: 19rem;
   z-index: 3000;
 }
 
@@ -955,6 +1034,7 @@ footer .copyright {
 }
 
 .creargif .timer__repeatShot {
+  margin-top: 10rem;
   color: #572ee5;
   text-decoration: none;
 }
@@ -1097,8 +1177,8 @@ footer .copyright {
           justify-content: center;
 }
 
-.btn--index {
-  display: none;
+.container_btn div {
+  cursor: pointer;
 }
 
 .emptyScreen {
@@ -1140,20 +1220,20 @@ footer .copyright {
   margin-left: 47%;
 }
 
-#gifobuilder, #misFavor {
+#gifobuilder, #misFavor, #edifMisGifs {
   display: -ms-grid;
   display: grid;
   gap: 10px;
   -ms-grid-columns: 1fr 1fr;
       grid-template-columns: 1fr 1fr;
-  -ms-grid-rows: 1fr;
-      grid-template-rows: 1fr;
+  -ms-grid-rows: (1fr)[auto-fill];
+      grid-template-rows: repeat(auto-fill, 1fr);
   width: 90%;
   gap: 0 21px;
   margin-left: 5%;
 }
 
-#gifobuilder > .placeholder, #misFavor > .placeholder {
+#gifobuilder .placeholder, #misFavor .placeholder, #edifMisGifs .placeholder {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr;
@@ -1169,18 +1249,13 @@ footer .copyright {
   justify-items: center;
 }
 
-#gifobuilder > .placeholder .cover, #misFavor > .placeholder .cover {
-  display: none;
-  visibility: hidden;
-}
-
-#gifobuilder > .placeholder img, #misFavor > .placeholder img {
+#gifobuilder .placeholder img, #misFavor .placeholder img, #edifMisGifs .placeholder img {
   width: 100%;
   height: 100%;
   z-index: 5;
 }
 
-#gifobuilder > .placeholder .btnholder, #misFavor > .placeholder .btnholder {
+#gifobuilder .placeholder .btnholder, #misFavor .placeholder .btnholder, #edifMisGifs .placeholder .btnholder {
   display: none;
 }
 
@@ -1193,6 +1268,7 @@ footer .copyright {
       -ms-flex-direction: column;
           flex-direction: column;
   padding: 15%;
+  margin-top: 30px;
 }
 
 .empty-search img {
@@ -1202,20 +1278,33 @@ footer .copyright {
 }
 
 @media (min-width: 840px) {
-  #gifobuilder, #misFavor {
+  .empty-search {
+    width: 50%;
+    padding: 0px;
+    margin: 20px 25%;
+  }
+  #gifobuilder, #misFavor, #edifMisGifs {
     display: -ms-grid;
     display: grid;
     gap: 10px;
     -ms-grid-columns: 1fr 1fr 1fr 1fr;
         grid-template-columns: 1fr 1fr 1fr 1fr;
-    -ms-grid-rows: 200px;
-        grid-template-rows: 200px;
+    -ms-grid-rows: 200px (200px)[auto-fill];
+        grid-template-rows: 200px repeat(auto-fill, 200px);
     width: 90%;
     margin: 0px;
     margin-left: 5%;
-    gap: 0px 21px;
+    gap: 10px 21px;
   }
-  #gifobuilder > .placeholder, #misFavor > .placeholder {
+  #gifobuilder img, #misFavor img, #edifMisGifs img {
+    width: 100%;
+    height: 100%;
+    -ms-grid-row: 1;
+        grid-row-start: 1;
+    -ms-grid-column: 1;
+        grid-column-start: 1;
+  }
+  #gifobuilder .placeholder, #misFavor .placeholder, #edifMisGifs .placeholder {
     display: -ms-grid;
     display: grid;
     -ms-grid-columns: 1fr;
@@ -1228,34 +1317,22 @@ footer .copyright {
         justify-self: center;
     justify-items: center;
   }
-  #gifobuilder > .placeholder .cover, #misFavor > .placeholder .cover {
-    display: initial;
-    -ms-grid-row: 1;
-        grid-row-start: 1;
-    -ms-grid-column: 1;
-        grid-column-start: 1;
-    z-index: 2;
+  #gifobuilder .placeholder img, #misFavor .placeholder img, #edifMisGifs .placeholder img {
     width: 100%;
-    height: 100%;
-    margin: 0;
-  }
-  #gifobuilder > .placeholder .cover--active, #misFavor > .placeholder .cover--active {
-    background: rgba(87, 46, 229, 0.7) !important;
-  }
-  #gifobuilder > .placeholder img, #misFavor > .placeholder img {
-    width: 100%;
-    height: 100%;
-    z-index: 1;
+    height: 190px;
     -ms-grid-row: 1;
         grid-row-start: 1;
     -ms-grid-column: 1;
         grid-column-start: 1;
   }
-  #gifobuilder > .placeholder .btnholder, #misFavor > .placeholder .btnholder {
+  #gifobuilder .placeholder .btnholder, #misFavor .placeholder .btnholder, #edifMisGifs .placeholder .btnholder {
     display: none;
     width: 100%;
-    height: 45px;
-    z-index: 3;
+    height: 190px;
+    max-height: 200px;
+    margin: 0px;
+    z-index: 10;
+    background: rgba(87, 46, 229, 0.7);
     -webkit-box-pack: end;
         -ms-flex-pack: end;
             justify-content: flex-end;
@@ -1264,11 +1341,22 @@ footer .copyright {
     -ms-grid-column: 1;
         grid-column-start: 1;
   }
-  #gifobuilder > .placeholder .btnholder .iconholder, #misFavor > .placeholder .btnholder .iconholder {
+  #gifobuilder .placeholder .btnholder .iconholder, #misFavor .placeholder .btnholder .iconholder, #edifMisGifs .placeholder .btnholder .iconholder {
+    display: inherit;
     width: 45px;
-    margin-right: 10px;
+    margin: 10px 10px;
     height: 45px;
-    z-index: 2;
+    z-index: 4;
+  }
+  #gifobuilder .placeholder .btnholder .iconholder img, #misFavor .placeholder .btnholder .iconholder img, #edifMisGifs .placeholder .btnholder .iconholder img {
+    width: 40px;
+  }
+  #gifobuilder .placeholder .btnholder h4, #misFavor .placeholder .btnholder h4, #edifMisGifs .placeholder .btnholder h4 {
+    justify-self: flex-end;
+    -ms-flex-item-align: end;
+        align-self: flex-end;
+    padding-bottom: 20px;
+    padding-left: 10px;
   }
 }
 
@@ -1300,7 +1388,7 @@ footer .copyright {
   body .btn--index:hover, body .btn--favoritos:hover, body .btn--misgifos:hover {
     background: url("../assets/viewmorebtn/ver-mas-hover-noc.svg");
   }
-  body #gifobuilder > .placeholder, body #misFavor > .placeholder {
+  body #gifobuilder > .placeholder, body #misFavor > .placeholder, body #edifMisGifs > .placeholder {
     -webkit-box-shadow: rgba(255, 255, 255, 0.877) 2px 3px 5px;
             box-shadow: rgba(255, 255, 255, 0.877) 2px 3px 5px;
   }
@@ -1419,7 +1507,7 @@ footer .copyright {
   body.light-theme #left:hover {
     background: url("../assets/arrow/left/button-slider-left-hover.svg");
   }
-  body.light-theme #gifobuilder > .placeholder, body.light-theme #misFavor > .placeholder {
+  body.light-theme #gifobuilder > .placeholder, body.light-theme #misFavor > .placeholder, body.light-theme #edifMisGifs > .placeholder {
     -webkit-box-shadow: rgba(0, 0, 0, 0.25) 2px 3px 5px;
             box-shadow: rgba(0, 0, 0, 0.25) 2px 3px 5px;
   }
@@ -1601,9 +1689,9 @@ footer .copyright {
 }
 
 .maximizar__container-data .actions .favorites,
-.maximizar__container-data .actions .download {
-  width: 20px;
-  height: 20px;
+.maximizar__container-data .actions .download,
+.maximizar__container-data .actions .trash {
+  width: 50%;
 }
 
 .maximizar__container-data .actions .favorites {
@@ -1611,11 +1699,29 @@ footer .copyright {
   margin: 0 0.25rem;
 }
 
+.maximizar__container-data .actions .favorites:hover {
+  background: url("../assets/favoritos/icon-fav-hover.svg") center no-repeat;
+}
+
+.maximizar__container-data .actions .trash {
+  background: url("../assets/trash/icon-trash-normal.svg") center no-repeat;
+  margin: 0 0.25rem;
+}
+
+.maximizar__container-data .actions .trash:hover {
+  background: url("../assets/trash/icon-trash-hover.svg") center no-repeat;
+}
+
 .maximizar__container-data .actions .download {
+  margin: 0 0.25rem;
   background: url("../assets/images/icon-download.svg") center no-repeat;
 }
 
-#mis_gifos {
+.maximizar__container-data .actions .download:hover {
+  background: url("../assets/download/icon-download-hover.svg") center no-repeat;
+}
+
+.mis_gifos {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr;
@@ -1624,6 +1730,33 @@ footer .copyright {
       grid-template-rows: auto 1fr;
   justify-items: center;
   margin-bottom: 25px;
+}
+
+.gifosimg {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.gifosimg img {
+  width: 55px;
+  -ms-grid-column-align: center;
+      justify-self: center;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  margin: 10px 0px;
+}
+
+.gifosimg h2 {
+  margin-bottom: 20px;
 }
 
 * {
@@ -1646,5 +1779,18 @@ footer .copyright {
 
 a {
   cursor: pointer;
+}
+
+.cover_purple {
+  background: rgba(87, 46, 229, 0.7) !important;
+}
+
+@media (max-width: 840px) {
+  .btn-holder, .icon-holder {
+    display: none;
+  }
+  .btn-holder img, .icon-holder img {
+    display: none;
+  }
 }
 /*# sourceMappingURL=stylesheet.css.map */

@@ -1,7 +1,22 @@
-#mis_gifos {
+.mis_gifos {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: auto 1fr ;
     justify-items: center;
     margin-bottom: 25px;
+}
+
+.gifosimg {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    img {
+        width: 55px;
+        justify-self: center;
+        align-self: center;
+        margin: 10px 0px;
+    }
+    h2 {
+        margin-bottom: 20px;
+    }
 }

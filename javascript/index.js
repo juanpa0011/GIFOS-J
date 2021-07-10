@@ -20,6 +20,7 @@ const configUser = window.matchMedia('(prefers-color-scheme: dark)')
 const localSt = localStorage.getItem('theme');
 
 const conteiner = document.getElementById('gifobuilder');
+const indexMore = document.querySelector('.btn--index');
 const searchingAnim = document.getElementById('buscadoranimation');
 
 //Max-popup NEEDED CODE
@@ -96,7 +97,10 @@ function stickyfunction() {
 
 // Searching Images
 
+
 const cant = ()=>{
+    conteiner.classList.add('hidden');
+    indexMore.classList.add('hidden');
     deleteNode(conteiner);
     let A = document.getElementById('searchResult');
     A.innerHTML = search.value;
@@ -104,7 +108,14 @@ const cant = ()=>{
     if(info.data.lenght == 0) {
         return
     }
-    for(let i = 0 ; i< cantidad ; i++){
+    conteiner.classList.remove('hidden');
+    indexMore.classList.remove('hidden');
+    edificar();
+    searchAnimationEnd()
+}
+
+function edificar (){
+    for(let i = start ; i< end ; i++){
         let placeholder = document.createElement('div');
         placeholder.className = 'placeholder';
         let btnholder = document.createElement('div');
@@ -123,35 +134,54 @@ const cant = ()=>{
         svgDownload.className = "iconholder"
     
         let img = document.createElement('img');
-        img.id = info.data[i].id;
-        img.src = info.data[i].images.original.url;
+        img.id = gifArray[i].id;
+        img.src = gifArray[i].images.original.url;
 
-        let cover = document.createElement('div');
-        cover.className = "cover";
+        let title = document.createElement('h4');
+        title.textContent = gifArray[i].title;
 
-        placeholder.appendChild(img);
-        img.addEventListener('click', () => {
-            popUp(info.data[i].id, info.data[i].images.original.url, info.data[i].username, info.data[i].title);
-        })
-
-        placeholder.appendChild(cover);
-
+        btnholder.appendChild(title);
         btnholder.appendChild(svgFav);
         svgFav.addEventListener('click',() => {
-            addFavorites(info.data[i].id, info.data[i].images.original.url, info.data[i].username, info.data[i].title);
+            addFavorites(gifArray[i].id, gifArray[i].images.original.url, gifArray[i].username, gifArray[i].title);
         })
         btnholder.appendChild(svgMax);
         svgMax.addEventListener('click', () => {
-            popUp(info.data[i].id, info.data[i].images.original.url, info.data[i].username, info.data[i].title);
+            popUp(gifArray[i].id, gifArray[i].images.original.url, gifArray[i].username, gifArray[i].title);
+        })
+        placeholder.appendChild(img);
+        img.addEventListener('click', () => {
+            if(window.innerWidth>800) {
+                btnholder.style.display = 'flex';
+            }
+            else {
+                popUp(gifArray[i].id, gifArray[i].images.original.url, gifArray[i].username, gifArray[i].title);
+            }
         })
         btnholder.appendChild(svgDownload);
+        svgDownload.addEventListener('click', () => {
+            download(gifArray[i].id, gifArray[i].title);
+        })
+        btnholder.addEventListener('click', () => {
+            btnholder.style.display = 'none';
+        })
         placeholder.appendChild(btnholder);
         conteiner.appendChild(placeholder);
-        ConstructImgHolder.push = new ConstructImgHolder(cover,btnholder,svgFav,svgMax,svgDownload);
+        ConstructImgHolder.push = new ConstructImgHolder(img,btnholder,svgFav,svgMax,svgDownload);
     }
-    searchAnimationEnd()
 }
 
+
+
+indexMore.addEventListener('click', () => {
+    start = start +12;
+    end = end +12;
+    if(end > 50) {
+        end = 49;
+        indexMore.classList.toggle('hidden');
+    }
+    edificar();
+})
 
 function popUp ( id, url, user, title) {
     deleteNode(actions);
@@ -213,8 +243,10 @@ async function newSearch(gifo) {
     try {
         const response = await fetch(url);
         info = await response.json();
+        gifArray = info.data;
         cant();
     } catch (err) {
+        checkGifArray(gifArray);
         console.log(err);
         nothingFound();
     }
@@ -225,6 +257,7 @@ function nothingFound () {
     A.innerHTML = "Lorem Ipsum"
     searchingAnim.src = path + "loadingcheck/failed.svg";
     emptySearch.classList.remove('hidden');
+    conteiner.classList.add('hidden');
 }
 
 class ConstructImgHolder {
@@ -238,15 +271,6 @@ class ConstructImgHolder {
         return;
     }
     imgInit() {
-        this.HTMLimg.addEventListener("click",() => {
-            if(this.HTMLBtnHolder.style.display == 'flex') {
-                this.HTMLBtnHolder.style.display = 'none';
-                this.HTMLimg.classList.remove('.cover--active')
-            } else {
-                this.HTMLBtnHolder.style.display = 'flex';
-                this.HTMLimg.classList.add('.cover--active')
-            }
-        });
         this.HTMLFav.addEventListener("mouseover",() =>{
             this.HTMLFav.src = path + "favoritos/icon-fav-hover.svg";
         });
@@ -271,20 +295,36 @@ class ConstructImgHolder {
     }
 }
 
-let cantidad = '12';
+let start = 0;
+let end = 12;
+let gifArray = [];
+let cantidad = '50';
+
+
 
 window.addEventListener("keydown", (e) => {
     if (e.key == "Enter") {
+        gifArray = [];
         let searchvalue = search.value;
         searchAnimation();
         newSearch(searchvalue);
     }
 })
 
+searchingAnim.addEventListener('click', () => {
+    let searchvalue = search.value;
+    gifArray = [];
+    searchAnimation();
+    newSearch(searchvalue);
+})
+
 // ===================================================== Trending
 
-let trendLimit = '9';
+let trendLimit = '12';
 let arrayImg = [];
+let arrayId = [];
+let arrayTitle = [];
+let arrayUser = [];
 let arrayIndex = 0;
 trendingCrafter();
 async function trendingCrafter() {
@@ -304,15 +344,75 @@ const containerTrend = document.getElementById('gifs');
 const trendingDownload = ()=>{
     for(let i = 0 ; i< trendLimit ; i++){
         arrayImg[i] = info.data[i].images.original.url;
+        arrayId[i] = info.data[i].id;
+        arrayTitle[i] = info.data[i].title;
+        arrayUser[i] = info.data[i].user;
     }
     showTrendArray();
 }
 
 function showTrendArray () {
-    for (let i = 0; i < 8; i++) {
+    for (let i = 0; i < 11; i++) {
+        let placeholder = document.createElement('div');
+        placeholder.className = 'trendholder';
+
+        let btnholder = document.createElement('div');
+        btnholder.className = 'btnholder';
+        btnholder.style.display = 'none';
+
+        let svgFav = document.createElement('img');
+        svgFav.src = path + "favoritos/icon-fav.svg";
+        svgFav.className = "iconholder"
+
+        let svgMax = document.createElement('img');
+        svgMax.src = path + "max/icon-max-normal.svg"
+        svgMax.className = "iconholder"
+
+        let svgDownload = document.createElement('img');
+        svgDownload.src = path + "download/icon-download.svg";
+        svgDownload.className = "iconholder"
+    
         let img = document.createElement('img');
         img.src = arrayImg[i];
-        containerTrend.appendChild(img);
+        img.id = arrayId[i];
+
+        let title = document.createElement('h4');
+        title.textContent = arrayTitle[i];
+
+        btnholder.appendChild(title);
+        btnholder.appendChild(svgFav);
+        svgFav.addEventListener('click',() => {
+            addFavorites(arrayId[i], arrayImg[i], arrayUser[i], arrayTitle[i]);
+        })
+        btnholder.appendChild(svgMax);
+        svgMax.addEventListener('click', () => {
+            popUp(arrayId[i], arrayImg[i], arrayUser[i], arrayTitle[i]);
+        })
+        placeholder.appendChild(img);
+        img.addEventListener('click', () => {
+            if(window.innerWidth>800) {
+                btnholder.style.display = 'flex';
+            }
+            else {
+                popUp(arrayId[i], arrayImg[i], arrayUser[i], arrayTitle[i]);
+            }
+        })
+        btnholder.appendChild(svgDownload);
+        svgDownload.addEventListener('click', () => {
+            download(arrayId[i], arrayTitle[i]);
+        })
+        btnholder.addEventListener('click', () => {
+            btnholder.style.display = 'none';
+        })
+        placeholder.appendChild(btnholder);
+        placeholder.appendChild(img);
+        placeholder.addEventListener('', () => {
+            if(window.innerWidth<800) {
+                btnholder.style.display = 'none';
+            }
+        })
+        containerTrend.appendChild(placeholder);
+        ConstructImgHolder.push = new ConstructImgHolder(img,btnholder,svgFav,svgMax,svgDownload);
     }
 }
 
@@ -385,3 +485,16 @@ const download = async (id, title) => {
 };
 
 // ============================ //
+
+
+function checkGifArray (gifArray) {
+    if(gifArray == null){
+        conteiner.classList.add('hidden')
+        indexMore.classList.add('hidden')
+    } else {
+        if(gifArray.length < end) {
+            end = gifArray.length
+            indexMore.classList.toggle('hidden');
+        }
+    }
+}

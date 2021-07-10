@@ -1,28 +1,30 @@
-const arrayFavorites = JSON.parse(localStorage.getItem('favorites'));
-const emptyscreen = document.getElementById('emptyFav');
-const favMore = document.querySelector('.btn--favoritos')
+const emptyMyGifs = document.getElementById('misGifos-empty');
+const myGifsBuild = document.getElementById('edifMisGifs');
+const arrayMyGifs = JSON.parse(localStorage.getItem('mygifos'));
+const myMore = document.querySelector('.btn--misgifos');
 
-let startFav = 0
-let endFav = 12
 
-favMore.addEventListener('click', () => {
-  startFav = startFav +12;
-  endFav = endFav +12;
-  if(endFav >= arrayFavorites.length) {
-    endFav = arrayFavorites.length;
+let startMy = 0
+let endMy = 12
+
+myMore.addEventListener('click', () => {
+    startMy = startMy +12;
+    endMy = endMy +12;
+  if(endMy >= arrayMyGifs.length) {
+    endMy = arrayMyGifs.length;
     favMore.classList.toggle('hidden');
   }
-  renderFav(arrayFavorites);
+  renderFav(arrayMyGifs);
 })
 
-function renderFav (arrayFav) {
-    if ( arrayFav && arrayFav.length > 0)  {
-        emptyscreen.classList.add('hidden');
+function renderMy (array) {
+    if ( array && array.length > 0)  {
+        emptyMyGifs.classList.add('hidden');
     } else{
         return;
     }
-    deleteNode(arrayFav);
-    for(let i = startFav ; i< endFav; i++) {
+    deleteNode(array);
+    for(let i = startMy ; i< endMy; i++) {
       let placeholder = document.createElement('div');
         placeholder.className = 'placeholder';
         let btnholder = document.createElement('div');
@@ -42,11 +44,11 @@ function renderFav (arrayFav) {
 
         let img = document.createElement('img');
 
-        img.id = arrayFav[i].id;
-        img.src = arrayFav[i].url;
+        img.id = array[i].id;
+        img.src = array[i].url;
 
         let title = document.createElement('h4');
-        title.textContent = arrayFav[i].title;
+        title.textContent = array[i].title;
 
         placeholder.appendChild(img);
         img.addEventListener('click', () => {
@@ -54,32 +56,32 @@ function renderFav (arrayFav) {
               btnholder.style.display = 'flex';
           }
           else {
-            popUpFav(arrayFav[i].id, arrayFav[i].url, arrayFav[i].username, arrayFav[i].title);
+            popUpMy(array[i].id, array[i].url, array[i].username, array[i].title);
           }
         })        
         btnholder.appendChild(title);
         btnholder.appendChild(svgTrash);
         
         svgTrash.addEventListener('click', () => {
-            deleteFav (arrayFav[i].id);
+            deleteMy (array[i].id);
         })
         btnholder.appendChild(svgMax);
         svgMax.addEventListener('click', () => {
-          popUpFav(arrayFav[i].id, arrayFav[i].url, arrayFav[i].username, arrayFav[i].title)
+          popUpMy(array[i].id, array[i].url, array[i].username, array[i].title)
         })
         btnholder.appendChild(svgDownload);
         placeholder.appendChild(btnholder);
         btnholder.addEventListener('click', () => {
           btnholder.style.display = 'none';
     })
-        misFavor.appendChild(placeholder);
+        myGifsBuild.appendChild(placeholder);
         
     }
 }
 
 /*  POP-UP FOR FAVS */
 
-function popUpFav ( id, url, user, title) {
+function popUpMy ( id, url, user, title) {
   deleteNode(actions);
   let popupBtnFav = document.createElement('div');
   popupBtnFav.setAttribute("class", "trash")
@@ -110,7 +112,7 @@ function popUpFav ( id, url, user, title) {
       popup__section.classList.add("hidden");
   })
   popupBtnFav.addEventListener('click', () => {
-      deleteFav(id);
+      deleteMy(id);
       window.location.reload(false);
   })
   popupBtnDown.addEventListener('click', () => {
@@ -130,34 +132,32 @@ function deleteNode (node) {
 
 
 /* FUNCIÓN ELIMINAR FAVORITO */
-const deleteFav = (id) => {
-    const LS = JSON.parse(localStorage.getItem('favorites'));
+const deleteMy = (id) => {
+    const LS = JSON.parse(localStorage.getItem('mygifos'));
     LS.filter((el, index) => {
       if (el.id == id) {
         LS.splice(index, 1);
-        localStorage.setItem('favorites', JSON.stringify(LS));
-        if (JSON.parse(localStorage.getItem('favorites')).length == 0) {
-          localStorage.removeItem('favorites');
-          deleteNode(misFavor);
-          emptyscreen.classList.toggle('hidden');
-          //eventFire(goToFavorites, 'click');
+        localStorage.setItem('mygifos', JSON.stringify(LS));
+        if (JSON.parse(localStorage.getItem('mygifos')).length == 0) {
+          localStorage.removeItem('mygifos');
+          window.location.reload(false);
         }
-        if (localStorage.getItem('favorites')) {
+        if (localStorage.getItem('mygifos')) {
           deleteElement(document.getElementById(id));
+          //eventFire(goToMyGifos, 'click');
         };
       };
     });
   };
 
-if(arrayFavorites == null) {
-} else {
-  if(arrayFavorites.length > 12) {
-    favMore.classList.toggle('hidden')
-  } else {
-    endFav = arrayFavorites.length;
-  }
-}
+if(arrayMyGifs == null) {
+   } else {
+     if(arrayMyGifs.length > 12) {
+        myMore.classList.toggle('hidden')
+     } else {
+       endMy = arrayMyGifs.length;
+     }
+   }
 
-
-renderFav (arrayFavorites);
+renderMy (arrayMyGifs);
 

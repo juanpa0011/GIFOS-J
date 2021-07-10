@@ -15,7 +15,7 @@ nav {
         grid-template-rows: 1fr;
         margin: 0;
         height: 50px;
-        width: 335px;
+        width: 90%;
         border: 2px solid $lightpurplecolor;
         border-radius: 2rem;
         img {
@@ -51,6 +51,8 @@ nav {
                 height: 20px;
             }
             input {
+                padding-left: 20px;
+                background: transparent;
                 border: 0px;
                 width: 350px;
                 height: 90%;
