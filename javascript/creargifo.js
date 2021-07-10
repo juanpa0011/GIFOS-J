@@ -210,11 +210,12 @@ const uploadCreatedGif = async () => {
         arrayMyGifos.push(object);
         localStorage.setItem('mygifos', JSON.stringify(arrayMyGifos));
       }
-      console.log(arrayMyGifos);
     })
     .catch((error) => {
       console.error(error);
     });
+    alert("Your Gif is now posted");
+    window.location.reload(false);
 };
 
 const timerActive = () => {

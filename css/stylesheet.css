@@ -1365,6 +1365,9 @@ footer .copyright {
     background-color: #2f2f2f;
     color: white;
   }
+  body #crearGif_text {
+    color: white;
+  }
   body #searchResult {
     color: white;
   }
@@ -1483,6 +1486,9 @@ footer .copyright {
   }
   body.light-theme {
     background-color: white;
+  }
+  body.light-theme #crearGif_text {
+    color: black;
   }
   body.light-theme #searchResult {
     color: #572EE5;
