@@ -86,11 +86,18 @@ header {
             width: 90%;
             height: 40px;
             font-family: 'Montserrat', sans-serif;
-            :hover {
+            &:hover {
                 text-decoration: underline $lightgreencolor;
             }
-            :active {
+            &:active {
                 color: #9CAFC3;
+            }
+            &::after {
+                content: '';
+                display: initial;
+                background: grey;
+                width: 100px;
+                height: 5px;
             }
         }
     }
@@ -256,11 +263,18 @@ a {
                 width: auto;
                 padding: 0 20px;
                 font-family: 'Montserrat', sans-serif;
-                :hover {
+                &:hover {
                     text-decoration: underline $lightgreencolor;
                 }
-                :active {
+                &:active {
                     color: #9CAFC3;
+                }
+                &::after {
+                    content: '';
+                    display: none;
+                    background: none;
+                    width: 0px;
+                    height: 0px;
                 }
             }
         }

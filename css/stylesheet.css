@@ -119,13 +119,21 @@ header ul li {
   font-family: 'Montserrat', sans-serif;
 }
 
-header ul li :hover {
+header ul li:hover {
   -webkit-text-decoration: underline #50E3C2;
           text-decoration: underline #50E3C2;
 }
 
-header ul li :active {
+header ul li:active {
   color: #9CAFC3;
+}
+
+header ul li::after {
+  content: '';
+  display: initial;
+  background: grey;
+  width: 100px;
+  height: 5px;
 }
 
 header input:checked ~ ul {
@@ -321,12 +329,19 @@ a {
     padding: 0 20px;
     font-family: 'Montserrat', sans-serif;
   }
-  header ul li :hover {
+  header ul li:hover {
     -webkit-text-decoration: underline #50E3C2;
             text-decoration: underline #50E3C2;
   }
-  header ul li :active {
+  header ul li:active {
     color: #9CAFC3;
+  }
+  header ul li::after {
+    content: '';
+    display: none;
+    background: none;
+    width: 0px;
+    height: 0px;
   }
 }
 
