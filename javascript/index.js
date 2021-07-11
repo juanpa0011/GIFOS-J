@@ -102,10 +102,7 @@ const cant = ()=>{
     conteiner.classList.add('hidden');
     indexMore.classList.add('hidden');
     deleteNode(conteiner);
-    let A = document.getElementById('searchResult');
-    if(A.textContent == '') {
-        A.innerHTML = search.value;
-    }
+
     if(info.data.lenght == 0) {
         return
     }
@@ -308,6 +305,8 @@ window.addEventListener("keydown", (e) => {
         gifArray = [];
         let searchvalue = search.value;
         searchAnimation();
+        let A = document.getElementById('searchResult');
+        A.textContent = search.value;
         newSearch(searchvalue);
     }
 })
@@ -316,6 +315,8 @@ searchingAnim.addEventListener('click', () => {
     let searchvalue = search.value;
     gifArray = [];
     searchAnimation();
+    let A = document.getElementById('searchResult');
+    A.textContent = search.value;
     newSearch(searchvalue);
 })
 
