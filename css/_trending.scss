@@ -75,6 +75,24 @@
     }
 }
 
+#container-trending {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    span {
+        padding: 5px 10px;
+        width: auto;
+        color: $lightpurplecolor;
+        &::after {
+            content: ',';
+        }
+        &:hover {
+            font-weight: bold;
+            cursor: pointer;
+        }
+    }
+}
+
 @media (min-width: 940px) {
     .trendholder {
         width: 100%;
