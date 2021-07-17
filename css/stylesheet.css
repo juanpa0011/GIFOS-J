@@ -1334,6 +1334,13 @@ footer .copyright {
   cursor: pointer;
 }
 
+.button {
+  margin-top: 10px;
+  border: 1px solid #572EE5;
+  padding: 10px 15px;
+  border-radius: 1rem;
+}
+
 .emptyScreen {
   display: -ms-grid;
   display: grid;

@@ -466,6 +466,8 @@ const addFavorites = (id, url, username, title) => {
             };
             LS.push(favorite);
             localStorage.setItem('favorites', JSON.stringify(LS));
+            alert("Un gifo se agrego a su lista de favoritos");
+            window.location.reload(false);
         }
     } else {
         const LS = [];

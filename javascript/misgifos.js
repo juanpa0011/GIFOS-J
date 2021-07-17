@@ -70,6 +70,9 @@ function renderMy (array) {
           popUpMy(array[i].id, array[i].url, array[i].username, array[i].title)
         })
         btnholder.appendChild(svgDownload);
+        svgDownload.addEventListener('click', () => {
+          download(array[i].id, array[i].title);
+        })
         placeholder.appendChild(btnholder);
         btnholder.addEventListener('click', () => {
           btnholder.style.display = 'none';
