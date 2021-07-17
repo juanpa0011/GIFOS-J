@@ -4,7 +4,7 @@ const endpointTrendingSearches = 'https://api.giphy.com/v1/trending/searches?api
 const trendingSuggestionContainer = document.getElementById('container-trending')
 
 function checkGifArray (gifArray) {
-    if(gifArray == null){
+    if(gifArray.length == 0){
         conteiner.classList.add('hidden')
         indexMore.classList.add('hidden')
     } else {

@@ -448,6 +448,113 @@ nav .navsphere input {
   background-color: transparent;
 }
 
+#buscador:focus {
+  outline: none;
+}
+
+.navsphere-extended {
+  height: 250px !important;
+  -ms-grid-rows: 50px 50px 50px 50px 50px !important;
+      grid-template-rows: 50px 50px 50px 50px 50px !important;
+}
+
+.nav_container--suggestions {
+  -ms-grid-row: 2;
+      grid-row-start: 2;
+  grid-row-end: -1;
+  grid-column-end: -1;
+  -ms-grid-column: 1;
+      grid-column-start: 1;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1.5fr 0.5fr;
+      grid-template-columns: 1.5fr 0.5fr;
+  -ms-grid-rows: 50px 50px 50px;
+      grid-template-rows: 50px 50px 50px;
+  margin: 0px 25px;
+  border-top: 1px #572EE5 solid;
+}
+
+.nav_container--suggestions .suggestion-li {
+  cursor: pointer;
+  list-style: none;
+  -ms-grid-column: 1;
+      grid-column-start: 1;
+  grid-column-end: 2;
+  justify-self: flex-start;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  padding-left: 10px;
+  color: rgba(165, 165, 165, 0.8);
+}
+
+.nav_container--suggestions .suggestion-li:hover {
+  color: #572ee5;
+  font-weight: bold;
+}
+
+.nav_container--suggestions div {
+  cursor: pointer;
+  margin: 0px;
+  width: 25px;
+  height: 25px;
+  -ms-grid-column-align: center;
+      justify-self: center;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  background: url("../assets/searching/icon-search-lighter.svg") no-repeat center;
+  -webkit-box-shadow: 0 0 0 0 rgba(172, 99, 255, 0.7);
+          box-shadow: 0 0 0 0 rgba(172, 99, 255, 0.7);
+  border-radius: 100%;
+  -webkit-animation: pulse-search 2s infinite;
+          animation: pulse-search 2s infinite;
+  margin-left: 35px;
+}
+
+@-webkit-keyframes pulse-search {
+  0% {
+    -webkit-transform: scale(0.95);
+            transform: scale(0.95);
+    -webkit-box-shadow: 0 0 0 0 rgba(172, 99, 255, 0.7);
+            box-shadow: 0 0 0 0 rgba(172, 99, 255, 0.7);
+  }
+  70% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    -webkit-box-shadow: 0 0 0 10px rgba(255, 82, 82, 0);
+            box-shadow: 0 0 0 10px rgba(255, 82, 82, 0);
+  }
+  100% {
+    -webkit-transform: scale(0.95);
+            transform: scale(0.95);
+    -webkit-box-shadow: 0 0 0 0 rgba(255, 82, 82, 0);
+            box-shadow: 0 0 0 0 rgba(255, 82, 82, 0);
+  }
+}
+
+@keyframes pulse-search {
+  0% {
+    -webkit-transform: scale(0.95);
+            transform: scale(0.95);
+    -webkit-box-shadow: 0 0 0 0 rgba(172, 99, 255, 0.7);
+            box-shadow: 0 0 0 0 rgba(172, 99, 255, 0.7);
+  }
+  70% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    -webkit-box-shadow: 0 0 0 10px rgba(255, 82, 82, 0);
+            box-shadow: 0 0 0 10px rgba(255, 82, 82, 0);
+  }
+  100% {
+    -webkit-transform: scale(0.95);
+            transform: scale(0.95);
+    -webkit-box-shadow: 0 0 0 0 rgba(255, 82, 82, 0);
+            box-shadow: 0 0 0 0 rgba(255, 82, 82, 0);
+  }
+}
+
 @media (min-width: 540px) {
   nav img {
     width: 399px;
@@ -1406,248 +1513,319 @@ footer .copyright {
   }
 }
 
-@media (prefers-color-scheme: dark) {
-  body {
-    background-color: #2f2f2f;
-    color: white;
-  }
-  body #crearGif_text {
-    color: white;
-  }
-  body #searchResult {
-    color: white;
-  }
-  body #right {
-    background: url("../assets/arrow/right/button-slider-right-md-noct.svg");
-  }
-  body #right:hover {
-    background: url("../assets/arrow/right/Button-Slider-right-hover.svg");
-  }
-  body #left {
-    background: url("../assets/arrow/left/button-slider-left-md-noct.svg");
-  }
-  body #left:hover {
-    background: url("../assets/arrow/left/button-slider-left-hover.svg");
-  }
-  body .btn--index, body .btn--favoritos, body .btn--misgifos {
-    background: url("../assets/viewmorebtn/ver-mas-noc.svg");
-    width: 127px;
-    height: 50px;
-  }
-  body .btn--index:hover, body .btn--favoritos:hover, body .btn--misgifos:hover {
-    background: url("../assets/viewmorebtn/ver-mas-hover-noc.svg");
-  }
-  body #gifobuilder > .placeholder, body #misFavor > .placeholder, body #edifMisGifs > .placeholder {
-    -webkit-box-shadow: rgba(255, 255, 255, 0.877) 2px 3px 5px;
-            box-shadow: rgba(255, 255, 255, 0.877) 2px 3px 5px;
-  }
-  body #stepone {
-    background: url("../assets/paso-a-paso/paso-a-paso-mod-noc.svg") no-repeat center;
-  }
-  body #steptwo {
-    background: url("../assets/paso-a-paso/paso-a-paso-mod-noc2.svg") no-repeat center;
-  }
-  body #stepthree {
-    background: url("../assets/paso-a-paso/paso-a-paso-mod-noc3.svg") no-repeat center;
-  }
-  body header {
-    background-color: inherit;
-  }
-  body header .logomobile > a div {
-    background: url("../assets/logo/logo-mobile-modo-noct.svg") no-repeat center;
-  }
-  body header .logodesk > a div {
-    background: url("../assets/logo/Logo-modo-noc.svg") no-repeat center;
-  }
-  body header .plusbtn div {
-    background: url("../assets/plusbtn/CTA-crear-gifo-modo-noc.svg") no-repeat center;
-  }
-  body header .plusbtn div:hover {
-    background: url("../assets/plusbtn/CTA-crear-gifo-hover-modo-noc.svg");
-  }
-  body header ul {
-    background-color: black;
-  }
-  body header input:checked ~ label span {
-    background-color: transparent;
-  }
-  body header input:checked ~ label span::before {
-    background-color: white;
-  }
-  body header input:checked ~ label span::after {
-    background-color: white;
-  }
-  body header label span {
-    background-color: white;
-  }
-  body .trendinggifos {
-    background-color: #222326;
-    color: white;
-  }
-  body .gifosimg {
-    color: white;
-  }
-  body .emptyscreen h3 {
-    color: white;
-    font-size: 23px;
-  }
-  body .navsphere input {
-    color: white;
-  }
-  body h2 {
-    color: white;
-  }
-  body .sharing #facebook {
-    background: url("../assets/facebook/icon_facebook_noc.svg") no-repeat center;
-  }
-  body .sharing #facebook:hover {
-    background: url("../assets/facebook/icon_facebook_hover.svg") no-repeat center;
-  }
-  body .sharing #twitter {
-    background: url("../assets/twitter/icon_twitter_noc.svg") no-repeat center;
-  }
-  body .sharing #twitter:hover {
-    background: url("../assets/twitter/icon_twitter-hover.svg") no-repeat center;
-  }
-  body .sharing #insta {
-    background: url("../assets/insta/icon_instagram_noc.svg") no-repeat center;
-  }
-  body .sharing #insta:hover {
-    background: url("../assets/insta/icon_instagram-hover.svg") no-repeat center;
-  }
-  header input:checked ~ label span {
-    background-color: transparent;
-  }
-  header input:checked ~ label span::before {
-    -webkit-transform: rotate(-45deg);
-            transform: rotate(-45deg);
-    background-color: darkblue;
-    top: 0;
-  }
-  header input:checked ~ label span::after {
-    -webkit-transform: rotate(45deg);
-            transform: rotate(45deg);
-    background-color: darkblue;
-    top: 0;
-  }
-  body.light-theme {
-    background-color: white;
-  }
-  body.light-theme #crearGif_text {
-    color: black;
-  }
-  body.light-theme #searchResult {
-    color: #572EE5;
-  }
-  body.light-theme .btn--index, body.light-theme .btn--favoritos, body.light-theme .btn--misgifos {
-    background-image: url("../assets/viewmorebtn/ver-mas.svg");
-    width: 127px;
-    height: 50px;
-  }
-  body.light-theme .btn--index .btn--index:hover, body.light-theme .btn--index .btn--favoritos:hover, body.light-theme .btn--index .btn--misgifos:hover, body.light-theme .btn--favoritos .btn--index:hover, body.light-theme .btn--favoritos .btn--favoritos:hover, body.light-theme .btn--favoritos .btn--misgifos:hover, body.light-theme .btn--misgifos .btn--index:hover, body.light-theme .btn--misgifos .btn--favoritos:hover, body.light-theme .btn--misgifos .btn--misgifos:hover {
-    background-image: url("../assets/viewmorebtn/ver-mas-hover.svg");
-  }
-  body.light-theme #right {
-    background: url("../assets/arrow/right/Button-Slider-right.svg");
-  }
-  body.light-theme #right:hover {
-    background: url("../assets/arrow/right/Button-Slider-right-hover.svg");
-  }
-  body.light-theme #left {
-    background: url("../assets/arrow/left/button-slider-left.svg");
-  }
-  body.light-theme #left:hover {
-    background: url("../assets/arrow/left/button-slider-left-hover.svg");
-  }
-  body.light-theme #gifobuilder > .placeholder, body.light-theme #misFavor > .placeholder, body.light-theme #edifMisGifs > .placeholder {
-    -webkit-box-shadow: rgba(0, 0, 0, 0.25) 2px 3px 5px;
-            box-shadow: rgba(0, 0, 0, 0.25) 2px 3px 5px;
-  }
-  body.light-theme #stepone {
-    background: url("../assets/paso-a-paso/paso-a-paso.svg") no-repeat center;
-  }
-  body.light-theme #steptwo {
-    background: url("../assets/paso-a-paso/paso-a-paso2.svg") no-repeat center;
-  }
-  body.light-theme #stepthree {
-    background: url("../assets/paso-a-paso/paso-a-paso3.svg") no-repeat center;
-  }
-  body.light-theme header {
-    background-color: inherit;
-    color: white;
-  }
-  body.light-theme header .logomobile a div {
-    background: url("../assets/logo/logo-mobile.svg") no-repeat center;
-  }
-  body.light-theme header .logodesk a div {
-    background: url("../assets/logo/logo-mobile.svg") no-repeat center;
-  }
-  body.light-theme header ul {
-    background-color: rgba(87, 46, 229, 0.9);
-  }
-  body.light-theme header .plusbtn div {
-    background: url("../assets/plusbtn/button-crear-gifo.svg") no-repeat center;
-  }
-  body.light-theme header .plusbtn div:hover {
-    background: url("../assets/plusbtn/CTA-crear-gifo-hover.svg");
-  }
-  body.light-theme header input:checked ~ label span {
-    background-color: transparent;
-  }
-  body.light-theme header input:checked ~ label span::before {
-    background-color: darkblue;
-  }
-  body.light-theme header input:checked ~ label span::after {
-    background-color: darkblue;
-  }
-  body.light-theme header label span {
-    background-color: darkblue;
-  }
-  body.light-theme .trendinggifos {
-    background-color: #F3F5F8;
-    color: black;
-    width: 100%;
-  }
-  body.light-theme .trendinggifos p {
-    color: black;
-  }
-  body.light-theme footer {
-    color: initial;
-  }
-  body.light-theme footer .sharing #facebook {
-    background: url("../assets/facebook/icon_facebook.svg") no-repeat center;
-  }
-  body.light-theme footer .sharing #facebook:hover {
-    background: url("../assets/facebook/icon_facebook_hover.svg") no-repeat center;
-  }
-  body.light-theme footer .sharing #twitter {
-    background: url("../assets/twitter/icon_twitter.svg") no-repeat center;
-  }
-  body.light-theme footer .sharing #twitter:hover {
-    background: url("../assets/twitter/icon_twitter-hover.svg") no-repeat center;
-  }
-  body.light-theme footer .sharing #insta {
-    background: url("../assets/insta/icon_instagram.svg") no-repeat center;
-  }
-  body.light-theme footer .sharing #insta:hover {
-    background: url("../assets/insta/icon_instagram-hover.svg") no-repeat center;
-  }
-  body.light-theme .gifosimg {
-    color: #572EE5;
-  }
-  body.light-theme h3 {
-    color: #50E3C2;
-    font-size: 23px;
-  }
-  body.light-theme h2 {
-    color: #572EE5;
-  }
-  body.light-theme p {
-    color: black;
-  }
-  body.light-theme .navsphere input {
-    color: black;
-  }
+body.dark {
+  background-color: #2f2f2f;
+  color: white;
+}
+
+body.dark #crearGif_text {
+  color: white;
+}
+
+body.dark #searchResult {
+  color: white;
+}
+
+body.dark #right {
+  background: url("../assets/arrow/right/button-slider-right-md-noct.svg");
+}
+
+body.dark #right:hover {
+  background: url("../assets/arrow/right/Button-Slider-right-hover.svg");
+}
+
+body.dark #left {
+  background: url("../assets/arrow/left/button-slider-left-md-noct.svg");
+}
+
+body.dark #left:hover {
+  background: url("../assets/arrow/left/button-slider-left-hover.svg");
+}
+
+body.dark .btn--index, body.dark .btn--favoritos, body.dark .btn--misgifos {
+  background: url("../assets/viewmorebtn/ver-mas-noc.svg");
+  width: 127px;
+  height: 50px;
+}
+
+body.dark .btn--index:hover, body.dark .btn--favoritos:hover, body.dark .btn--misgifos:hover {
+  background: url("../assets/viewmorebtn/ver-mas-hover-noc.svg");
+}
+
+body.dark #gifobuilder > .placeholder, body.dark #misFavor > .placeholder, body.dark #edifMisGifs > .placeholder {
+  -webkit-box-shadow: rgba(255, 255, 255, 0.877) 2px 3px 5px;
+          box-shadow: rgba(255, 255, 255, 0.877) 2px 3px 5px;
+}
+
+body.dark #stepone {
+  background: url("../assets/paso-a-paso/paso-a-paso-mod-noc.svg") no-repeat center;
+}
+
+body.dark #steptwo {
+  background: url("../assets/paso-a-paso/paso-a-paso-mod-noc2.svg") no-repeat center;
+}
+
+body.dark #stepthree {
+  background: url("../assets/paso-a-paso/paso-a-paso-mod-noc3.svg") no-repeat center;
+}
+
+body.dark header {
+  background-color: inherit;
+}
+
+body.dark header .logomobile > a div {
+  background: url("../assets/logo/logo-mobile-modo-noct.svg") no-repeat center;
+}
+
+body.dark header .logodesk > a div {
+  background: url("../assets/logo/Logo-modo-noc.svg") no-repeat center;
+}
+
+body.dark header .plusbtn div {
+  background: url("../assets/plusbtn/CTA-crear-gifo-modo-noc.svg") no-repeat center;
+}
+
+body.dark header .plusbtn div:hover {
+  background: url("../assets/plusbtn/CTA-crear-gifo-hover-modo-noc.svg");
+}
+
+body.dark header ul {
+  background-color: black;
+}
+
+body.dark header input:checked ~ label span {
+  background-color: transparent;
+}
+
+body.dark header input:checked ~ label span::before {
+  background-color: white;
+}
+
+body.dark header input:checked ~ label span::after {
+  background-color: white;
+}
+
+body.dark header label span {
+  background-color: white;
+}
+
+body.dark .trendinggifos {
+  background-color: #222326;
+  color: white;
+}
+
+body.dark .gifosimg {
+  color: white;
+}
+
+body.dark .emptyscreen h3 {
+  color: white;
+  font-size: 23px;
+}
+
+body.dark .navsphere input {
+  color: white;
+}
+
+body.dark h2 {
+  color: white;
+}
+
+body.dark .sharing #facebook {
+  background: url("../assets/facebook/icon_facebook_noc.svg") no-repeat center;
+}
+
+body.dark .sharing #facebook:hover {
+  background: url("../assets/facebook/icon_facebook_hover.svg") no-repeat center;
+}
+
+body.dark .sharing #twitter {
+  background: url("../assets/twitter/icon_twitter_noc.svg") no-repeat center;
+}
+
+body.dark .sharing #twitter:hover {
+  background: url("../assets/twitter/icon_twitter-hover.svg") no-repeat center;
+}
+
+body.dark .sharing #insta {
+  background: url("../assets/insta/icon_instagram_noc.svg") no-repeat center;
+}
+
+body.dark .sharing #insta:hover {
+  background: url("../assets/insta/icon_instagram-hover.svg") no-repeat center;
+}
+
+header input:checked ~ label span {
+  background-color: transparent;
+}
+
+header input:checked ~ label span::before {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+  background-color: darkblue;
+  top: 0;
+}
+
+header input:checked ~ label span::after {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  background-color: darkblue;
+  top: 0;
+}
+
+body.light-theme {
+  background-color: white;
+}
+
+body.light-theme #crearGif_text {
+  color: black;
+}
+
+body.light-theme #searchResult {
+  color: #572EE5;
+}
+
+body.light-theme .btn--index, body.light-theme .btn--favoritos, body.light-theme .btn--misgifos {
+  background-image: url("../assets/viewmorebtn/ver-mas.svg");
+  width: 127px;
+  height: 50px;
+}
+
+body.light-theme .btn--index .btn--index:hover, body.light-theme .btn--index .btn--favoritos:hover, body.light-theme .btn--index .btn--misgifos:hover, body.light-theme .btn--favoritos .btn--index:hover, body.light-theme .btn--favoritos .btn--favoritos:hover, body.light-theme .btn--favoritos .btn--misgifos:hover, body.light-theme .btn--misgifos .btn--index:hover, body.light-theme .btn--misgifos .btn--favoritos:hover, body.light-theme .btn--misgifos .btn--misgifos:hover {
+  background-image: url("../assets/viewmorebtn/ver-mas-hover.svg");
+}
+
+body.light-theme #right {
+  background: url("../assets/arrow/right/Button-Slider-right.svg");
+}
+
+body.light-theme #right:hover {
+  background: url("../assets/arrow/right/Button-Slider-right-hover.svg");
+}
+
+body.light-theme #left {
+  background: url("../assets/arrow/left/button-slider-left.svg");
+}
+
+body.light-theme #left:hover {
+  background: url("../assets/arrow/left/button-slider-left-hover.svg");
+}
+
+body.light-theme #gifobuilder > .placeholder, body.light-theme #misFavor > .placeholder, body.light-theme #edifMisGifs > .placeholder {
+  -webkit-box-shadow: rgba(0, 0, 0, 0.25) 2px 3px 5px;
+          box-shadow: rgba(0, 0, 0, 0.25) 2px 3px 5px;
+}
+
+body.light-theme #stepone {
+  background: url("../assets/paso-a-paso/paso-a-paso.svg") no-repeat center;
+}
+
+body.light-theme #steptwo {
+  background: url("../assets/paso-a-paso/paso-a-paso2.svg") no-repeat center;
+}
+
+body.light-theme #stepthree {
+  background: url("../assets/paso-a-paso/paso-a-paso3.svg") no-repeat center;
+}
+
+body.light-theme header {
+  background-color: inherit;
+  color: white;
+}
+
+body.light-theme header .logomobile a div {
+  background: url("../assets/logo/logo-mobile.svg") no-repeat center;
+}
+
+body.light-theme header .logodesk a div {
+  background: url("../assets/logo/logo-mobile.svg") no-repeat center;
+}
+
+body.light-theme header ul {
+  background-color: rgba(87, 46, 229, 0.9);
+}
+
+body.light-theme header .plusbtn div {
+  background: url("../assets/plusbtn/button-crear-gifo.svg") no-repeat center;
+}
+
+body.light-theme header .plusbtn div:hover {
+  background: url("../assets/plusbtn/CTA-crear-gifo-hover.svg");
+}
+
+body.light-theme header input:checked ~ label span {
+  background-color: transparent;
+}
+
+body.light-theme header input:checked ~ label span::before {
+  background-color: darkblue;
+}
+
+body.light-theme header input:checked ~ label span::after {
+  background-color: darkblue;
+}
+
+body.light-theme header label span {
+  background-color: darkblue;
+}
+
+body.light-theme .trendinggifos {
+  background-color: #F3F5F8;
+  color: black;
+  width: 100%;
+}
+
+body.light-theme .trendinggifos p {
+  color: black;
+}
+
+body.light-theme footer {
+  color: initial;
+}
+
+body.light-theme footer .sharing #facebook {
+  background: url("../assets/facebook/icon_facebook.svg") no-repeat center;
+}
+
+body.light-theme footer .sharing #facebook:hover {
+  background: url("../assets/facebook/icon_facebook_hover.svg") no-repeat center;
+}
+
+body.light-theme footer .sharing #twitter {
+  background: url("../assets/twitter/icon_twitter.svg") no-repeat center;
+}
+
+body.light-theme footer .sharing #twitter:hover {
+  background: url("../assets/twitter/icon_twitter-hover.svg") no-repeat center;
+}
+
+body.light-theme footer .sharing #insta {
+  background: url("../assets/insta/icon_instagram.svg") no-repeat center;
+}
+
+body.light-theme footer .sharing #insta:hover {
+  background: url("../assets/insta/icon_instagram-hover.svg") no-repeat center;
+}
+
+body.light-theme .gifosimg {
+  color: #572EE5;
+}
+
+body.light-theme h3 {
+  color: #50E3C2;
+  font-size: 23px;
+}
+
+body.light-theme h2 {
+  color: #572EE5;
+}
+
+body.light-theme p {
+  color: black;
+}
+
+body.light-theme .navsphere input {
+  color: black;
 }
 
 .maximizar {
@@ -1809,6 +1987,10 @@ footer .copyright {
 
 .gifosimg h2 {
   margin-bottom: 20px;
+}
+
+#misGifos-empty {
+  margin-top: 50px;
 }
 
 * {

@@ -128,8 +128,6 @@ function deleteNode (node) {
     }
 }
 
-
-/* FUNCIÓN ELIMINAR FAVORITO */
 const deleteFav = (id) => {
     const LS = JSON.parse(localStorage.getItem('favorites'));
     LS.filter((el, index) => {

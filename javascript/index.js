@@ -16,8 +16,6 @@ const nav = document.getElementById('nav');
 
 // DARKNESS NEEDED CODE
 const dark = document.getElementById('darkness');
-const configUser = window.matchMedia('(prefers-color-scheme: dark)')
-const localSt = localStorage.getItem('theme');
 
 const conteiner = document.getElementById('gifobuilder');
 const indexMore = document.querySelector('.btn--index');
@@ -42,33 +40,44 @@ const footer = document.getElementById('footer')
 // Header
 //
 
+const body = document.getElementById('body');
+
 // SVGs PATH () //
 const path = "../assets/"
 
-if(localSt === 'dark') {
-    document.body.classList.toggle('dark-theme')
+if(localStorage.getItem('theme') == 'dark') {
+    dark.textContent = "MODO NOCTURNO";
+    dark.textContent = "MODO DIANURO";
+    body.classList.add('dark')
+    body.classList.remove('light-theme')
 }
-else if (localSt === 'light') {
-    document.body.classList.toggle('light-theme')
+else if (localStorage.getItem('theme') == 'light') {
+    body.classList.remove('dark')
+    body.classList.add('light-theme')
+    dark.textContent = "MODO NOCTURNO";
 }
 // los value de  localStorage seran 'dark' y 'light'
 dark.addEventListener('click',() => {
-    if(dark.innerHTML == "MODO DIANURO"){
-        dark.innerHTML = "MODO NOCTURNO";
+    if(dark.textContent == "MODO DIANURO"){
+        dark.textContent = "MODO NOCTURNO";
     }
     else{
-        dark.innerHTML = "MODO DIANURO";
+        dark.textContent = "MODO DIANURO";
     }
     let colorTheme;
-    if (configUser.matches) {
-        document.body.classList.toggle('light-theme');
-        colorTheme = document.body.classList.contains('light-theme') ? 'light' : 'dark ';
+    if (localStorage.getItem('theme') == 'light') {
+        body.classList.add('dark')
+        body.classList.remove('light-theme')
+        colorTheme = document.body.classList.contains('dark') ? 'dark' : 'light';
+        localStorage.setItem('theme', 'dark')
     }
     else {
-        document.body.classList.toggle('dark-theme');
-        colorTheme = document.body.classList.contains('dark-theme') ? 'dark' : 'light';
+        body.classList.remove('dark')
+        body.classList.add('light-theme')
+        colorTheme = document.body.classList.contains('light-theme') ? 'light' : 'dark ';
+        localStorage.setItem('theme', 'light')
     }
-    localStorage.setItem('theme', colorTheme)
+    //localStorage.setItem('theme', colorTheme)
 })
 
 
@@ -169,8 +178,6 @@ function edificar (){
     }
 }
 
-
-
 indexMore.addEventListener('click', () => {
     start = start +12;
     end = end +12;
@@ -241,9 +248,12 @@ async function newSearch(gifo) {
     try {
         const response = await fetch(url);
         info = await response.json();
+        checkGifArray(gifArray);
         gifArray = info.data;
         cant();
+        emptySearch.classList.add('hidden');
     } catch (err) {
+        gifArray = [];
         checkGifArray(gifArray);
         console.log(err);
         nothingFound();
@@ -302,6 +312,7 @@ let cantidad = '50';
 
 window.addEventListener("keydown", (e) => {
     if (e.key == "Enter") {
+        navsphere.classList.remove('navsphere-extended');
         gifArray = [];
         let searchvalue = search.value;
         searchAnimation();
@@ -486,4 +497,61 @@ const download = async (id, title) => {
     }
 };
 
-// ============================ //
+// ============================ NAV BEHAVIOR ========================= //
+
+const navsphere = document.querySelector('.navsphere');
+const navsuggestions = document.querySelector('.nav_container--suggestions')
+const endpointSuggestions = 'https://api.giphy.com/v1/tags/related/';
+
+window.addEventListener('keydown', (e) => {
+    let A = document.getElementById('buscador');
+    if(e.key == 'Enter') { 
+        navsphere.classList.remove('navsphere-extended');
+        navsuggestions.classList.add('hidden');
+        return; 
+    }
+    if(A.value != '') {
+        navsphere.classList.add('navsphere-extended');
+        navsuggestions.classList.remove('hidden');
+        edificarSuggestions(A.value);
+        //getSuggestions(A.value);
+
+    } else {
+        navsphere.classList.remove('navsphere-extended');
+        navsuggestions.classList.add('hidden');
+    }
+})
+
+
+async function edificarSuggestions (string) {
+    const response = await fetch(endpointSuggestions + '{' + string + '}' + '?api_key=' + 'T96v34LvfncPq5iV6LjP4GsHYqeQEupg');
+    const data = await response.json();
+    deleteNode(navsuggestions);
+    let resultingSearch = document.getElementById('searchResult');
+    for (let i = 0; i < 4; i++) {
+        let A = document.createElement('li');
+        let B = document.createElement('div');
+        A.innerText = data.data[i].name;
+        A.addEventListener('click', () => {
+            search.value = A.innerText;
+            search.innerText = A.innerText;
+            deleteNode(navsuggestions);
+            navsphere.classList.remove('navsphere-extended');
+            navsuggestions.classList.add('hidden');
+            resultingSearch.innerText = A.innerText;
+            newSearch( A.innerText);
+        })
+        B.addEventListener('click', () => {
+            search.value = A.innerText;
+            search.innerText = A.innerText;
+            deleteNode(navsuggestions);
+            navsphere.classList.remove('navsphere-extended');
+            navsuggestions.classList.add('hidden');
+            resultingSearch.innerText = A.innerText;
+            newSearch( A.innerText);
+        })
+        A.classList.add('suggestion-li');
+        navsuggestions.appendChild(A);
+        navsuggestions.appendChild(B);
+    }
+}
