@@ -1,4 +1,11 @@
 body.dark {
+    .nav_container--suggestions{
+        li{
+            &:hover {
+                color: white;
+            }
+        }
+    }
         #crearGif_text {
             color: white;
         }
