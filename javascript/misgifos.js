@@ -33,6 +33,7 @@ function renderMy (array) {
         let svgTrash = document.createElement('img');
         svgTrash.src = "../assets/trash/icon-trash-normal.svg";
         svgTrash.className = "iconholder";
+        
 
         let svgMax = document.createElement('img');
         svgMax.src = path + "max/icon-max-normal.svg"
@@ -65,17 +66,36 @@ function renderMy (array) {
         svgTrash.addEventListener('click', () => {
             deleteMy (array[i].id);
         })
+        svgTrash.addEventListener('mouseover', () => {
+          svgTrash.src = path + "/trash/icon-trash-hover.svg";
+        })
+        svgTrash.addEventListener('mouseleave', () => {
+          svgTrash.src = path + "/trash/icon-trash-normal.svg";
+        })
         btnholder.appendChild(svgMax);
         svgMax.addEventListener('click', () => {
           popUpMy(array[i].id, array[i].url, array[i].username, array[i].title)
+        })
+        svgMax.addEventListener('mouseover', () => {
+          svgMax.src= path + "/max/icon-max-hover.svg";
+        })
+        svgMax.addEventListener('mouseleave', () => {
+          svgMax.src = path + "/max/icon-max-normal.svg";
         })
         btnholder.appendChild(svgDownload);
         svgDownload.addEventListener('click', () => {
           download(array[i].id, array[i].title);
         })
+        svgDownload.addEventListener('mouseover', () => {
+          svgDownload.src = path + "/download/icon-download-hover.svg";
+        })
+        svgDownload.addEventListener('mouseleave', () => {
+          svgDownload.src = path + "/download/icon-download.svg";
+        })
         placeholder.appendChild(btnholder);
         btnholder.addEventListener('click', () => {
           btnholder.style.display = 'none';
+          
     })
         myGifsBuild.appendChild(placeholder);
         

@@ -63,11 +63,32 @@ function renderFav (arrayFav) {
         svgTrash.addEventListener('click', () => {
             deleteFav (arrayFav[i].id);
         })
+        svgTrash.addEventListener('mouseover', () => {
+          svgTrash.src = path + "/trash/icon-trash-hover.svg";
+        })
+        svgTrash.addEventListener('mouseleave', () => {
+          svgTrash.src = path + "/trash/icon-trash-normal.svg";
+        })
         btnholder.appendChild(svgMax);
         svgMax.addEventListener('click', () => {
           popUpFav(arrayFav[i].id, arrayFav[i].url, arrayFav[i].username, arrayFav[i].title)
         })
+        svgMax.addEventListener('mouseover', () => {
+          svgMax.src= path + "/max/icon-max-hover.svg";
+        })
+        svgMax.addEventListener('mouseleave', () => {
+          svgMax.src = path + "/max/icon-max-normal.svg";
+        })
         btnholder.appendChild(svgDownload);
+        svgDownload.addEventListener('click', () => {
+          download(arrayFav[i].id, arrayFav[i].title); // svgDownload.src = path + "download/icon-download.svg";
+        })
+        svgDownload.addEventListener('mouseover', () => {
+          svgDownload.src = path + "/download/icon-download-hover.svg";
+        })
+        svgDownload.addEventListener('mouseleave', () => {
+          svgDownload.src = path + "/download/icon-download.svg";
+        })
         placeholder.appendChild(btnholder);
         btnholder.addEventListener('click', () => {
           btnholder.style.display = 'none';
