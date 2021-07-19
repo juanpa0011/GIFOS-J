@@ -46,18 +46,9 @@ const body = document.getElementById('body');
 // SVGs PATH () //
 const path = "../assets/"
 
-window.addEventListener("resize", function () {
+window.addEventListener("resize", () => {
     if (window.innerWidth>840) {
         ul.style.backgroundColor = 'transparent';
-        let x = document.getElementsByClassName('btnholder')
-        for (let i = 0; i < x.length; i++) {
-            x[i].classList.toggle('hidden');
-        }
-    } else {
-        let x = document.getElementsByClassName('btnholder')
-        for (let i = 0; i < x.length; i++) {
-            x[i].classList.toggle('hidden');
-        }
     }
 });
 
