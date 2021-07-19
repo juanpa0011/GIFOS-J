@@ -45,17 +45,24 @@ const body = document.getElementById('body');
 // SVGs PATH () //
 const path = "../assets/"
 
-if(localStorage.getItem('theme') == 'dark') {
-    dark.textContent = "MODO NOCTURNO";
-    dark.textContent = "MODO DIANURO";
-    body.classList.add('dark')
-    body.classList.remove('light-theme')
+
+
+if (localStorage.getItem('theme') !== null) {
+    localStorage.setItem('theme', 'light');
+} else {
+    if(localStorage.getItem('theme') == 'dark') {
+        dark.textContent = "MODO NOCTURNO";
+        dark.textContent = "MODO DIANURO";
+        body.classList.add('dark');
+        body.classList.remove('light-theme');
+    }
+    else if (localStorage.getItem('theme') == 'light') {
+        body.classList.remove('dark')
+        body.classList.add('light-theme')
+        dark.textContent = "MODO NOCTURNO";
+    }
 }
-else if (localStorage.getItem('theme') == 'light') {
-    body.classList.remove('dark')
-    body.classList.add('light-theme')
-    dark.textContent = "MODO NOCTURNO";
-}
+
 // los value de  localStorage seran 'dark' y 'light'
 dark.addEventListener('click',() => {
     if(dark.textContent == "MODO DIANURO"){
