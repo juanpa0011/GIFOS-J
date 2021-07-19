@@ -4,29 +4,48 @@ const apiKey = 'T96v34LvfncPq5iV6LjP4GsHYqeQEupg';
 
 // ============================= DARK MODE ==============================
 
-const dark = document.getElementById('darkness');
-const configUser = window.matchMedia('(prefers-color-scheme: dark)')
-const localSt = localStorage.getItem('theme');
-if(localSt === 'dark') {
-    document.body.classList.toggle('dark-theme')
-}
-else if (localSt === 'light') {
-    document.body.classList.toggle('light-theme')
-}
-// los value de  localStorage seran 'dark' y 'light'
+const dark = document.getElementById('darkness')
 
+if(localStorage.getItem('theme') == 'dark') {
+  dark.textContent = "MODO DIANURO";
+  body.classList.add('dark');
+  body.classList.remove('light-theme');
+}else if (localStorage.getItem('theme') == 'light') {
+  body.classList.remove('dark')
+  body.classList.add('light-theme')
+  dark.textContent = "MODO NOCTURNO";
+} else {
+localStorage.setItem('theme', 'light');
+body.classList.remove('dark')
+body.classList.add('light-theme')
+dark.textContent = "MODO NOCTURNO";
+}
+
+
+// los value de  localStorage seran 'dark' y 'light'
 dark.addEventListener('click',() => {
-    let colorTheme;
-    if (configUser.matches) {
-    document.body.classList.toggle('light-theme')
-    colorTheme = document.body.classList.contains('light-theme') ? 'light' : 'dark '
-    }
-    else {
-        document.body.classList.toggle('dark-theme')
-        colorTheme = document.body.classList.contains('dark-theme') ? 'dark' : 'light'
-    }
-    localStorage.setItem('theme', colorTheme)
+if(dark.textContent == "MODO DIANURO"){
+  dark.textContent = "MODO NOCTURNO";
+}
+else{
+  dark.textContent = "MODO DIANURO";
+}
+let colorTheme;
+if (localStorage.getItem('theme') == 'light') {
+  console.log("Here")
+  body.classList.add('dark')
+  body.classList.remove('light-theme')
+  colorTheme = document.body.classList.contains('dark') ? 'dark' : 'light';
+  localStorage.setItem('theme', 'dark')
+}else {
+  body.classList.remove('dark')
+  body.classList.add('light-theme')
+  colorTheme = document.body.classList.contains('light-theme') ? 'light' : 'dark ';
+  localStorage.setItem('theme', 'light')
+}
+//localStorage.setItem('theme', colorTheme)
 })
+
 
 
 // ===================================== JS Code for Creating GIFS

@@ -74,12 +74,12 @@ dark.addEventListener('click',() => {
     }
     let colorTheme;
     if (localStorage.getItem('theme') == 'light') {
+        console.log("Here")
         body.classList.add('dark')
         body.classList.remove('light-theme')
         colorTheme = document.body.classList.contains('dark') ? 'dark' : 'light';
         localStorage.setItem('theme', 'dark')
-    }
-    else {
+    }else {
         body.classList.remove('dark')
         body.classList.add('light-theme')
         colorTheme = document.body.classList.contains('light-theme') ? 'light' : 'dark ';
@@ -355,6 +355,7 @@ async function trendingCrafter() {
     try {
         const response = await fetch(url);
         info = await response.json();
+        console.log(info)
         trendingDownload();
     } catch (err) {
         console.log(err);

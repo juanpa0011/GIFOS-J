@@ -1524,6 +1524,8 @@ footer .copyright {
 body.dark {
   background-color: #2f2f2f;
   color: white;
+  background-color: #2f2f2f;
+  color: white;
 }
 
 body.dark .nav_container--suggestions li:hover {
