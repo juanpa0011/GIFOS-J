@@ -38,6 +38,7 @@ const blue_top = document.getElementById('top_blue');
 const main = document.getElementById('main');
 const footer = document.getElementById('footer')
 // Header
+const ul = document.getElementById('ul--header')
 //
 
 const body = document.getElementById('body');
@@ -45,7 +46,20 @@ const body = document.getElementById('body');
 // SVGs PATH () //
 const path = "../assets/"
 
-
+window.addEventListener("resize", function () {
+    if (window.innerWidth>840) {
+        ul.style.backgroundColor = 'transparent';
+        let x = document.getElementsByClassName('btnholder')
+        for (let i = 0; i < x.length; i++) {
+            x[i].classList.toggle('hidden');
+        }
+    } else {
+        let x = document.getElementsByClassName('btnholder')
+        for (let i = 0; i < x.length; i++) {
+            x[i].classList.toggle('hidden');
+        }
+    }
+});
 
 
 if(localStorage.getItem('theme') == 'dark') {
@@ -355,7 +369,6 @@ async function trendingCrafter() {
     try {
         const response = await fetch(url);
         info = await response.json();
-        console.log(info)
         trendingDownload();
     } catch (err) {
         console.log(err);
