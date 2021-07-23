@@ -115,8 +115,6 @@ function stickyfunction() {
 }
 
 // ===================== HEADER - Sticky END //
-
-
 // Searching Images
 
 
@@ -137,7 +135,10 @@ const cant = ()=>{
 function edificar (){
     for(let i = start ; i< end ; i++){
         let placeholder = document.createElement('div');
-        placeholder.className = 'placeholder';
+        placeholder.className = "searchitem";
+
+        let overlay = document.createElement('div');
+        overlay.className = 'placeholder';
         let btnholder = document.createElement('div');
         btnholder.className = 'btnholder';
     
@@ -169,23 +170,50 @@ function edificar (){
         svgMax.addEventListener('click', () => {
             popUp(gifArray[i].id, gifArray[i].images.original.url, gifArray[i].username, gifArray[i].title);
         })
-        placeholder.appendChild(img);
-        img.addEventListener('click', () => {
-            if(window.innerWidth>800) {
-                btnholder.style.display = 'flex';
-            }
-            else {
-                popUp(gifArray[i].id, gifArray[i].images.original.url, gifArray[i].username, gifArray[i].title);
-            }
-        })
         btnholder.appendChild(svgDownload);
         svgDownload.addEventListener('click', () => {
             download(gifArray[i].id, gifArray[i].title);
         })
+        placeholder.appendChild(img);
+        img.addEventListener('mouseover', () => {
+            if(window.innerWidth>800) {
+                btnholder.style.display = 'flex';
+            }
+        })
+        img.addEventListener('click', () => {
+            if(window.innerWidth>800) {
+                
+            } else {
+                popUp(gifArray[i].id, gifArray[i].images.original.url, gifArray[i].username, gifArray[i].title);
+            }
+        })
+        img.addEventListener('mouseleave', () => {
+            if(window.innerWidth>800) {
+                btnholder.style.display = 'none';
+            }
+        })
         btnholder.addEventListener('click', () => {
             btnholder.style.display = 'none';
         })
-        placeholder.appendChild(btnholder);
+
+        overlay.appendChild(btnholder);
+        
+        placeholder.addEventListener('', () => {
+            if(window.innerWidth<800) {
+                btnholder.style.display = 'none';
+            }
+        })
+        overlay.addEventListener('mouseover', () => {
+            if(window.innerWidth>800) {
+                btnholder.style.display = 'flex';
+            }
+        })
+        overlay.addEventListener('mouseleave', () => {
+            if(window.innerWidth>800) {
+                btnholder.style.display = 'none';
+            }
+        })
+        placeholder.appendChild(overlay);
         conteiner.appendChild(placeholder);
         ConstructImgHolder.push = new ConstructImgHolder(img,btnholder,svgFav,svgMax,svgDownload);
     }
@@ -277,6 +305,9 @@ function nothingFound () {
     let A = document.getElementById('searchResult');
     A.innerHTML = "Lorem Ipsum"
     searchingAnim.src = path + "loadingcheck/failed.svg";
+    search.value = '';
+    search.textContent = '';
+
     emptySearch.classList.remove('hidden');
     conteiner.classList.add('hidden');
 }
@@ -342,6 +373,8 @@ searchingAnim.addEventListener('click', () => {
     let A = document.getElementById('searchResult');
     A.textContent = search.value;
     newSearch(searchvalue);
+    navsphere.classList.remove('navsphere-extended');
+    navsuggestions.classList.add('hidden');
 })
 
 // ===================================================== Trending
@@ -379,8 +412,12 @@ const trendingDownload = ()=>{
 
 function showTrendArray () {
     for (let i = 0; i < 11; i++) {
+
         let placeholder = document.createElement('div');
-        placeholder.className = 'trendholder';
+        placeholder.className = "item";
+
+        let overlay = document.createElement('div');
+        overlay.className = 'trendholder';
 
         let btnholder = document.createElement('div');
         btnholder.className = 'btnholder';
@@ -414,29 +451,48 @@ function showTrendArray () {
         svgMax.addEventListener('click', () => {
             popUp(arrayId[i], arrayImg[i], arrayUser[i], arrayTitle[i]);
         })
-        placeholder.appendChild(img);
-        img.addEventListener('click', () => {
-            if(window.innerWidth>800) {
-                btnholder.style.display = 'flex';
-            }
-            else {
-                popUp(arrayId[i], arrayImg[i], arrayUser[i], arrayTitle[i]);
-            }
-        })
         btnholder.appendChild(svgDownload);
         svgDownload.addEventListener('click', () => {
             download(arrayId[i], arrayTitle[i]);
         })
+        placeholder.appendChild(img);
+        img.addEventListener('mouseover', () => {
+            if(window.innerWidth>800) {
+                btnholder.style.display = 'flex';
+            }
+        })
+        img.addEventListener('click', () => {
+            if(window.innerWidth>800) {
+                
+            } else {
+                popUp(arrayId[i], arrayImg[i], arrayUser[i], arrayTitle[i]);
+            }
+        })
+        img.addEventListener('mouseleave', () => {
+            if(window.innerWidth>800) {
+                btnholder.style.display = 'none';
+            }
+        })
         btnholder.addEventListener('click', () => {
             btnholder.style.display = 'none';
         })
-        placeholder.appendChild(btnholder);
-        placeholder.appendChild(img);
+        overlay.appendChild(btnholder);
         placeholder.addEventListener('', () => {
             if(window.innerWidth<800) {
                 btnholder.style.display = 'none';
             }
         })
+        overlay.addEventListener('mouseover', () => {
+            if(window.innerWidth>800) {
+                btnholder.style.display = 'flex';
+            }
+        })
+        overlay.addEventListener('mouseleave', () => {
+            if(window.innerWidth>800) {
+                btnholder.style.display = 'none';
+            }
+        })
+        placeholder.appendChild(overlay);
         containerTrend.appendChild(placeholder);
         ConstructImgHolder.push = new ConstructImgHolder(img,btnholder,svgFav,svgMax,svgDownload);
     }
@@ -454,9 +510,6 @@ arrleft.addEventListener('click', () => {
 // ===================================================== Trending End
 
 
-// AUXILIAR FEDE EL AMOR =========================================
-
-
 function deleteNode (node) {
     if(node) {
         while(node.lastChild) {
@@ -465,7 +518,6 @@ function deleteNode (node) {
     }
 }
 
-/* FUNCIÓN AGREGAR A FAVORITOS*/
 const addFavorites = (id, url, username, title) => {
     let LS = JSON.parse(localStorage.getItem('favorites'));
     if (LS !== null && LS.length > 0) {
@@ -520,6 +572,7 @@ const endpointSuggestions = 'https://api.giphy.com/v1/tags/related/';
 
 window.addEventListener('keydown', (e) => {
     let A = document.getElementById('buscador');
+    searchingAnim.src = path + "searching/icon-search.svg";
     if(e.key == 'Enter') { 
         navsphere.classList.remove('navsphere-extended');
         navsuggestions.classList.add('hidden');
@@ -530,13 +583,11 @@ window.addEventListener('keydown', (e) => {
         navsuggestions.classList.remove('hidden');
         edificarSuggestions(A.value);
         //getSuggestions(A.value);
-
     } else {
         navsphere.classList.remove('navsphere-extended');
         navsuggestions.classList.add('hidden');
     }
 })
-
 
 async function edificarSuggestions (string) {
     const response = await fetch(endpointSuggestions + '{' + string + '}' + '?api_key=' + 'T96v34LvfncPq5iV6LjP4GsHYqeQEupg');
