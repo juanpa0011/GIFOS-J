@@ -1402,40 +1402,85 @@ footer .copyright {
 #gifobuilder, #misFavor, #edifMisGifs {
   display: -ms-grid;
   display: grid;
-  gap: 10px;
   -ms-grid-columns: 1fr 1fr;
       grid-template-columns: 1fr 1fr;
-  -ms-grid-rows: (1fr)[auto-fill];
-      grid-template-rows: repeat(auto-fill, 1fr);
+  -ms-grid-rows: 170px (170px)[auto-fill];
+      grid-template-rows: 170px repeat(auto-fill, 170px);
   width: 90%;
-  margin-left: 65px;
-  gap: 0 21px;
+  gap: 10px 21px;
+  justify-items: center;
+  margin-left: 5%;
 }
 
-#gifobuilder .placeholder, #misFavor .placeholder, #edifMisGifs .placeholder {
+#gifobuilder .searchitem, #misFavor .searchitem, #edifMisGifs .searchitem {
   display: -ms-grid;
   display: grid;
+  width: 100%;
+  height: 120px;
+  margin: 20px 0px;
   -ms-grid-columns: 1fr;
       grid-template-columns: 1fr;
   -ms-grid-rows: 1fr;
       grid-template-rows: 1fr;
-  width: 100%;
-  -webkit-box-shadow: rgba(0, 0, 0, 0.25) 2px 3px 5px;
-          box-shadow: rgba(0, 0, 0, 0.25) 2px 3px 5px;
-  border-radius: 5px;
-  -ms-grid-column-align: center;
-      justify-self: center;
-  justify-items: center;
 }
 
-#gifobuilder .placeholder img, #misFavor .placeholder img, #edifMisGifs .placeholder img {
-  width: 100%;
-  height: 100%;
+#gifobuilder .searchitem img, #misFavor .searchitem img, #edifMisGifs .searchitem img {
+  -ms-grid-row: 1;
+      grid-row-start: 1;
+  -ms-grid-column: 1;
+      grid-column-start: 1;
+  width: inherit;
+  height: inherit;
+}
+
+#gifobuilder .searchitem .placeholder, #misFavor .searchitem .placeholder, #edifMisGifs .searchitem .placeholder {
+  display: -ms-grid;
+  display: grid;
+  margin: 0px;
+  -ms-grid-row: 1;
+      grid-row-start: 1;
+  -ms-grid-column: 1;
+      grid-column-start: 1;
+  width: inherit;
+  height: inherit;
+}
+
+#gifobuilder .searchitem .placeholder .btnholder, #misFavor .searchitem .placeholder .btnholder, #edifMisGifs .searchitem .placeholder .btnholder {
+  -ms-grid-column: 1;
+      grid-column-start: 1;
+  -ms-grid-row: 1;
+      grid-row-start: 1;
   z-index: 5;
+  display: none;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  background: rgba(87, 46, 229, 0.7);
+  margin: 0px;
+  padding-top: 10px;
+  padding-right: 10px;
 }
 
-#gifobuilder .placeholder .btnholder, #misFavor .placeholder .btnholder, #edifMisGifs .placeholder .btnholder {
-  display: none;
+#gifobuilder .searchitem .placeholder .btnholder .iconholder, #misFavor .searchitem .placeholder .btnholder .iconholder, #edifMisGifs .searchitem .placeholder .btnholder .iconholder {
+  width: 15%;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  justify-self: flex-end;
+  margin: 0px 5px;
+}
+
+#gifobuilder .searchitem .placeholder .btnholder .iconholder img, #misFavor .searchitem .placeholder .btnholder .iconholder img, #edifMisGifs .searchitem .placeholder .btnholder .iconholder img {
+  width: 45px;
+}
+
+#gifobuilder .searchitem .placeholder .btnholder h4, #misFavor .searchitem .placeholder .btnholder h4, #edifMisGifs .searchitem .placeholder .btnholder h4 {
+  justify-self: flex-end;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  color: white;
+  padding-bottom: 20px;
+  padding-left: 10px;
+  font-size: 14px;
 }
 
 .empty-search {
@@ -1465,7 +1510,6 @@ footer .copyright {
   #gifobuilder, #misFavor, #edifMisGifs {
     display: -ms-grid;
     display: grid;
-    gap: 10px;
     -ms-grid-columns: 1fr 1fr 1fr 1fr;
         grid-template-columns: 1fr 1fr 1fr 1fr;
     -ms-grid-rows: 200px (200px)[auto-fill];
@@ -1473,6 +1517,7 @@ footer .copyright {
     width: 90%;
     gap: 10px 21px;
     justify-items: center;
+    margin: 0px 5%;
   }
   #gifobuilder .searchitem, #misFavor .searchitem, #edifMisGifs .searchitem {
     display: -ms-grid;
@@ -1510,6 +1555,7 @@ footer .copyright {
     -ms-grid-row: 1;
         grid-row-start: 1;
     z-index: 5;
+    width: 230px;
     display: none;
     -webkit-box-pack: end;
         -ms-flex-pack: end;
@@ -1537,6 +1583,18 @@ footer .copyright {
     padding-bottom: 20px;
     padding-left: 10px;
     font-size: 14px;
+  }
+  #edifMisGifs {
+    margin-top: 30px;
+  }
+  #edifMisGifs .searchitem {
+    margin: 0px;
+  }
+  #edifMisGifs .searchitem .placeholder {
+    width: 100%;
+  }
+  #edifMisGifs .searchitem .placeholder .btnholder {
+    width: 230px;
   }
 }
 

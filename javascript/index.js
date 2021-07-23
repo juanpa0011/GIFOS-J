@@ -79,7 +79,6 @@ dark.addEventListener('click',() => {
     }
     let colorTheme;
     if (localStorage.getItem('theme') == 'light') {
-        console.log("Here")
         body.classList.add('dark')
         body.classList.remove('light-theme')
         colorTheme = document.body.classList.contains('dark') ? 'dark' : 'light';

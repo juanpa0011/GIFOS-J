@@ -24,9 +24,13 @@ function renderFav (arrayFav) {
     deleteNode(arrayFav);
     for(let i = startFav ; i< endFav; i++) {
       let placeholder = document.createElement('div');
-        placeholder.className = 'placeholder';
-        let btnholder = document.createElement('div');
-        btnholder.className = 'btnholder';
+      placeholder.className = "searchitem";
+
+      let overlay = document.createElement('div');
+      overlay.className = 'placeholder';
+
+      let btnholder = document.createElement('div');
+      btnholder.className = 'btnholder';
 
         let svgTrash = document.createElement('img');
         svgTrash.src = "../assets/trash/icon-trash-normal.svg";
@@ -41,7 +45,6 @@ function renderFav (arrayFav) {
         svgDownload.className = "iconholder"
 
         let img = document.createElement('img');
-
         img.id = arrayFav[i].id;
         img.src = arrayFav[i].url;
 
@@ -49,14 +52,24 @@ function renderFav (arrayFav) {
         title.textContent = arrayFav[i].title;
 
         placeholder.appendChild(img);
+        img.addEventListener('mouseover', () => {
+            if(window.innerWidth>800) {
+                btnholder.style.display = 'flex';
+            }
+        })
         img.addEventListener('click', () => {
-          if(window.innerWidth>800) {
-              btnholder.style.display = 'flex';
-          }
-          else {
-            popUpFav(arrayFav[i].id, arrayFav[i].url, arrayFav[i].username, arrayFav[i].title);
-          }
-        })        
+            if(window.innerWidth>800) {
+                
+            } else {
+              popUpFav(arrayFav[i].id, arrayFav[i].url, arrayFav[i].username, arrayFav[i].title);
+            }
+        })
+        img.addEventListener('mouseleave', () => {
+            if(window.innerWidth>800) {
+                btnholder.style.display = 'none';
+            }
+        })
+
         btnholder.appendChild(title);
         btnholder.appendChild(svgTrash);
         
@@ -89,10 +102,23 @@ function renderFav (arrayFav) {
         svgDownload.addEventListener('mouseleave', () => {
           svgDownload.src = path + "/download/icon-download.svg";
         })
-        placeholder.appendChild(btnholder);
-        btnholder.addEventListener('click', () => {
-          btnholder.style.display = 'none';
-    })
+        placeholder.addEventListener('', () => {
+          if(window.innerWidth<800) {
+              btnholder.style.display = 'none';
+          }
+        })
+        overlay.addEventListener('mouseover', () => {
+          if(window.innerWidth>800) {
+              btnholder.style.display = 'flex';
+          }
+        })
+        overlay.addEventListener('mouseleave', () => {
+          if(window.innerWidth>800) {
+              btnholder.style.display = 'none';
+          }
+        })
+        overlay.appendChild(btnholder);
+        placeholder.appendChild(overlay);
         misFavor.appendChild(placeholder);
         
     }

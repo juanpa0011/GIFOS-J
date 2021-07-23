@@ -26,9 +26,12 @@ function renderMy (array) {
     deleteNode(array);
     for(let i = startMy ; i< endMy; i++) {
       let placeholder = document.createElement('div');
-        placeholder.className = 'placeholder';
-        let btnholder = document.createElement('div');
-        btnholder.className = 'btnholder';
+      placeholder.className = "searchitem";
+
+      let overlay = document.createElement('div');
+      overlay.className = 'placeholder';
+      let btnholder = document.createElement('div');
+      btnholder.className = 'btnholder';
 
         let svgTrash = document.createElement('img');
         svgTrash.src = "../assets/trash/icon-trash-normal.svg";
@@ -52,12 +55,21 @@ function renderMy (array) {
         title.textContent = array[i].title;
 
         placeholder.appendChild(img);
-        img.addEventListener('click', () => {
+        img.addEventListener('mouseover', () => {
           if(window.innerWidth>800) {
               btnholder.style.display = 'flex';
           }
-          else {
+        })
+        img.addEventListener('click', () => {
+          if(window.innerWidth>800) {
+              
+          } else {
             popUpMy(array[i].id, array[i].url, array[i].username, array[i].title);
+          }
+        })
+        img.addEventListener('mouseleave', () => {
+          if(window.innerWidth>800) {
+              btnholder.style.display = 'none';
           }
         })        
         btnholder.appendChild(title);
@@ -92,11 +104,23 @@ function renderMy (array) {
         svgDownload.addEventListener('mouseleave', () => {
           svgDownload.src = path + "/download/icon-download.svg";
         })
-        placeholder.appendChild(btnholder);
-        btnholder.addEventListener('click', () => {
-          btnholder.style.display = 'none';
-          
-    })
+        placeholder.addEventListener('', () => {
+          if(window.innerWidth<800) {
+              btnholder.style.display = 'none';
+          }
+        })
+        overlay.addEventListener('mouseover', () => {
+          if(window.innerWidth>800) {
+              btnholder.style.display = 'flex';
+          }
+        })
+        overlay.addEventListener('mouseleave', () => {
+          if(window.innerWidth>800) {
+              btnholder.style.display = 'none';
+          }
+        })
+        overlay.appendChild(btnholder);
+        placeholder.appendChild(overlay);
         myGifsBuild.appendChild(placeholder);
         
     }

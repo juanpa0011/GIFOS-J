@@ -1,27 +1,59 @@
 #gifobuilder, #misFavor, #edifMisGifs{
     display: grid;
-    gap: 10px;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: repeat(auto-fill, 1fr);
+    grid-template-rows: 170px repeat(auto-fill, 170px);
     width: 90%;
-    margin-left: 65px;
-    gap: 0 21px;
-    .placeholder {
+    gap: 10px 21px;
+    justify-items: center;
+    margin-left: 5%;
+    .searchitem {
         display: grid;
+        width: 100%;
+        height: 120px;
+        margin: 20px 0px;
         grid-template-columns: 1fr;
         grid-template-rows: 1fr;
-        width: 100%;
-        box-shadow: rgba(0, 0, 0, 0.25) 2px 3px 5px;
-        border-radius: 5px;
-        justify-self: center;
-        justify-items: center;
         img {
-            width: 100%;
-            height: 100%;
-            z-index: 5;
+            grid-row-start: 1;
+            grid-column-start: 1;
+            width: inherit;
+            height: inherit;
         }
-        .btnholder {
-            display: none;
+        .placeholder {
+            display: grid;
+            margin: 0px;
+            grid-row-start: 1;
+            grid-column-start: 1;
+            width: inherit;
+            height: inherit;
+            .btnholder {
+                grid-column-start: 1;
+                grid-row-start: 1;
+                z-index: 5;
+                display: none;
+                justify-content: flex-end;
+                background: rgba(87, 46, 229, 0.7);
+                margin: 0px;
+                padding-top: 10px;
+                padding-right: 10px;
+                .iconholder {
+                    width: 15%;
+                    align-self: flex-start;
+                    justify-self: flex-end;
+                    margin: 0px 5px;
+                    img {
+                        width: 45px;
+                    }
+                }
+                h4 {
+                    justify-self: flex-end;
+                    align-self: flex-end;
+                    color: white;
+                    padding-bottom: 20px;
+                    padding-left: 10px;
+                    font-size: 14px;
+                }
+            }
         }
     }
 }
@@ -47,12 +79,12 @@
     }
     #gifobuilder, #misFavor, #edifMisGifs{
         display: grid;
-        gap: 10px;
         grid-template-columns: 1fr 1fr 1fr 1fr;
         grid-template-rows: 200px repeat(auto-fill, 200px);
         width: 90%;
         gap: 10px 21px;
         justify-items: center;
+        margin: 0px 5%;
         .searchitem {
             display: grid;
             width: 240px;
@@ -77,6 +109,7 @@
                     grid-column-start: 1;
                     grid-row-start: 1;
                     z-index: 5;
+                    width: 230px;
                     display: none;
                     justify-content: flex-end;
                     background: rgba(87, 46, 229, 0.7);
@@ -104,4 +137,17 @@
             }
         }
     }
+    #edifMisGifs{
+        margin-top: 30px;
+        .searchitem {
+            margin: 0px;
+            .placeholder {
+                width: 100%;
+                .btnholder {
+                    width: 230px;
+                }
+            }
+        }
+    }
+
 }
