@@ -1,7 +1,9 @@
 # GIFOS
 ### Aplicación web para compartir GIFs animados
 <br>
+
 [Link a la demo](https://nazgul.com.ar/jp/html/index.html)
+
 #### Trabajo práctico para Acámica.
 - Carrera: Desarrollo Web Full Stack
 #### Objetivos
