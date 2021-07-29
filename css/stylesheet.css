@@ -425,7 +425,12 @@ nav .navsphere {
   border-radius: 2rem;
 }
 
-nav .navsphere img {
+nav .navsphere div {
+  margin: 0px;
+}
+
+nav .navsphere div img {
+  margin-right: 0.50rem;
   width: 20px;
   height: 20px;
   -ms-grid-column-align: center;

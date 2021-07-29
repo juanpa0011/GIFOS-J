@@ -18,11 +18,16 @@ nav {
         width: 90%;
         border: 2px solid $lightpurplecolor;
         border-radius: 2rem;
-        img {
-            width: 20px;
-            height: 20px;
-            justify-self: center;
-            align-self: center;
+        div {
+            margin: 0px;
+            img {
+                margin-right: 0.50rem;
+                width: 20px;
+                height: 20px;
+                justify-self: center;
+                align-self: center;
+            }
+
         }
         input {
             justify-self: center;

@@ -46,12 +46,16 @@ const body = document.getElementById('body');
 // SVGs PATH () //
 const path = "../assets/"
 
+/*
 window.addEventListener("resize", () => {
     if (window.innerWidth>840) {
         ul.style.backgroundColor = 'transparent';
     }
+    else  {
+        ul.style.backgroundColor = '#572EE5';
+    }
 });
-
+*/
 
 if(localStorage.getItem('theme') == 'dark') {
         dark.textContent = "MODO DIANURO";
@@ -303,8 +307,7 @@ async function newSearch(gifo) {
 function nothingFound () {
     let A = document.getElementById('searchResult');
     A.innerHTML = "Lorem Ipsum"
-    searchingAnim.src = path + "loadingcheck/failed.svg";
-    search.value = '';
+    searchingAnim.src = path + "searching/icon-search.svg";
     search.textContent = '';
 
     emptySearch.classList.remove('hidden');
@@ -568,10 +571,20 @@ const download = async (id, title) => {
 const navsphere = document.querySelector('.navsphere');
 const navsuggestions = document.querySelector('.nav_container--suggestions')
 const endpointSuggestions = 'https://api.giphy.com/v1/tags/related/';
+const cross = document.getElementById('closer-input');
+
+cross.addEventListener('click', () => {
+    let A = document.getElementById('buscador');
+    A.value = '';
+    cross.classList.add('hidden');
+    navsphere.classList.remove('navsphere-extended');
+    navsuggestions.classList.add('hidden');
+    searchingAnim.src = path + "searching/icon-search.svg";
+})
 
 window.addEventListener('keydown', (e) => {
     let A = document.getElementById('buscador');
-    searchingAnim.src = path + "searching/icon-search.svg";
+    //searchingAnim.src = path + "searching/icon-search.svg";
     if(e.key == 'Enter') { 
         navsphere.classList.remove('navsphere-extended');
         navsuggestions.classList.add('hidden');
@@ -580,11 +593,13 @@ window.addEventListener('keydown', (e) => {
     if(A.value != '') {
         navsphere.classList.add('navsphere-extended');
         navsuggestions.classList.remove('hidden');
+        cross.classList.remove('hidden');
         edificarSuggestions(A.value);
         //getSuggestions(A.value);
     } else {
         navsphere.classList.remove('navsphere-extended');
         navsuggestions.classList.add('hidden');
+        cross.classList.add('hidden');
     }
 })
 

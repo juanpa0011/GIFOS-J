@@ -6,7 +6,7 @@
  </defs>
  <g>
   <title>Layer 1</title>
-  <line stroke="#ff0000" filter="url(#svg_1_blur)" stroke-width="12" stroke-linecap="undefined" stroke-linejoin="undefined" id="svg_1" y2="6.67169" x2="8.14151" y1="121.95376" x1="131.51923" fill="none"/>
-  <line stroke="#ff0000" stroke-linecap="undefined" stroke-linejoin="undefined" id="svg_5" y2="6" x2="132" y1="121.88083" x1="6" stroke-width="12" fill="none"/>
+  <line stroke="#572EE5" filter="url(#svg_1_blur)" stroke-width="12" stroke-linecap="undefined" stroke-linejoin="undefined" id="svg_1" y2="6.67169" x2="8.14151" y1="121.95376" x1="131.51923" fill="none"/>
+  <line stroke="#572EE5" stroke-linecap="undefined" stroke-linejoin="undefined" id="svg_5" y2="6" x2="132" y1="121.88083" x1="6" stroke-width="12" fill="none"/>
  </g>
 </svg>
